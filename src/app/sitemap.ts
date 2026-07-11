@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://hiredevopsexpert.com";
+const BASE_URL = "https://www.hiredevopsexpert.com";
 
 // Page configuration with metadata
 interface SitemapPage {
