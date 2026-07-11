@@ -5,13 +5,97 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Button from "@/components/Button";
-import { SERVICES } from "@/lib/services";
 
 const NAV_LINKS = [
   { label: "How We Work", href: "/how-we-work" },
   { label: "Process", href: "/process" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
+];
+
+// All services organized by category based on your folder structure
+const SERVICES_DATA = [
+  // Core DevOps Services
+  { label: "DevOps as a Service", href: "/devops-as-a-service" },
+  { label: "Managed DevOps Services", href: "/managed-devops-services" },
+  { label: "DevOps for Startups", href: "/devops-for-startups" },
+  { label: "DevOps Automation Services", href: "/devops-automation-services" },
+  { label: "DevOps Monitoring & Observability", href: "/devops-monitoring-observability-services" },
+  { label: "DevSecOps Services", href: "/devsecops-services" },
+  { label: "Ongoing DevOps Support", href: "/ongoing-devops-support" },
+  { label: "DevOps Support for SaaS", href: "/devops-support-for-saas-companies" },
+  
+  // Cloud Provider Services
+  { label: "AWS DevOps Services", href: "/aws-devops-services" },
+  { label: "AWS DevOps Consulting", href: "/aws-devops-consulting-services" },
+  { label: "AWS Cost Optimization", href: "/aws-cost-optimization-services" },
+  { label: "AWS Migration Services", href: "/aws-migration-services" },
+  { label: "Azure DevOps Consulting", href: "/azure-devops-consulting-services" },
+  { label: "Azure Migration Services", href: "/azure-migration-services" },
+  { label: "GCP DevOps Services", href: "/gcp-devops-services" },
+  { label: "Google Cloud DevOps Consulting", href: "/google-cloud-devops-consulting" },
+  
+  // CI/CD & Pipeline Services
+  { label: "CI/CD Pipeline Setup", href: "/ci-cd-pipeline-setup-services" },
+  { label: "Secure CI/CD Pipeline", href: "/secure-ci-cd-pipeline-services" },
+  { label: "Jenkins Pipeline Setup", href: "/jenkins-pipeline-setup" },
+  { label: "GitHub Actions Setup", href: "/github-actions-setup-service" },
+  { label: "GitLab CI/CD Services", href: "/gitlab-ci-cd-services" },
+  { label: "Datadog Implementation", href: "/datadog-implementation-services" },
+  
+  // Kubernetes & Containers
+  { label: "Kubernetes Consulting", href: "/kubernetes-consulting-services" },
+  { label: "Kubernetes Cluster Setup", href: "/kubernetes-cluster-setup-services" },
+  { label: "Kubernetes Migration", href: "/kubernetes-migration-services" },
+  { label: "EKS Setup Services", href: "/eks-setup-services" },
+  { label: "Docker Consulting", href: "/docker-consulting-services" },
+  { label: "Docker Deployment", href: "/docker-deployment-services" },
+  { label: "Dockerize Application", href: "/dockerize-application-service" },
+  { label: "Prometheus & Grafana Setup", href: "/prometheus-grafana-setup-services" },
+  
+  // Terraform & IaC
+  { label: "Terraform Consulting", href: "/terraform-consulting-services" },
+  { label: "Terraform AWS Services", href: "/terraform-aws-services" },
+  { label: "Infrastructure as Code", href: "/infrastructure-as-code-services" },
+  { label: "Infrastructure Automation", href: "/infrastructure-automation-services" },
+  
+  // Cloud & Security
+  { label: "Cloud Automation", href: "/cloud-automation-services" },
+  { label: "Cloud Security", href: "/cloud-security-devops-services" },
+  { label: "Cloud Migration", href: "/cloud-migration-devops-services" },
+  { label: "PCI DSS DevOps", href: "/pci-dss-devops-services" },
+  
+  // Migration Services
+  { label: "Heroku to AWS Migration", href: "/heroku-to-aws-migration-services" },
+  { label: "Render to AWS Migration", href: "/render-to-aws-migration-services" },
+  { label: "Firebase to AWS Migration", href: "/firebase-to-aws-migration-services" },
+  
+  // Specialized Services
+  { label: "DevOps for AI Startups", href: "/devops-for-ai-startups" },
+  { label: "DevOps for Fintech Startups", href: "/devops-for-fintech-startups" },
+  { label: "DevOps for E-commerce", href: "/devops-for-ecommerce-peak-scaling" },
+  { label: "DevOps for EdTech Startups", href: "/devops-for-edtech-startups" },
+  { label: "White Label DevOps", href: "/white-label-devops-services" },
+  { label: "White Label for Agencies", href: "/white-label-devops-for-agencies" },
+  
+  // Specialized Tech
+  { label: "LLM App Deployment", href: "/llm-app-deployment-services" },
+  { label: "GPU Infrastructure Setup", href: "/gpu-infrastructure-setup-service" },
+  { label: "MLOps Setup for Startups", href: "/mlops-setup-services-for-startups" },
+  
+  // Hiring Services
+  { label: "Hire DevOps Engineer", href: "/hire-devops-engineer" },
+  { label: "Hire Azure DevOps Engineer", href: "/hire-azure-devops-engineer" },
+];
+
+// Top services for quick access
+const TOP_SERVICES = [
+  { label: "Hire DevOps Engineer", href: "/hire-devops-engineer" },
+  { label: "DevOps as a Service", href: "/devops-as-a-service" },
+  { label: "Managed DevOps", href: "/managed-devops-services" },
+  { label: "AWS DevOps", href: "/aws-devops-services" },
+  { label: "Kubernetes Consulting", href: "/kubernetes-consulting-services" },
+  { label: "CI/CD Pipeline Setup", href: "/ci-cd-pipeline-setup-services" },
 ];
 
 interface HeaderProps {
@@ -103,6 +187,10 @@ export default function Header({
     return pathname === href || pathname.startsWith(href + "/");
   };
 
+  const isServiceActive = (href: string) => {
+    return pathname === href || pathname.startsWith(href);
+  };
+
   // Render logo or fallback text
   const renderLogo = () => {
     if (!logoSrc) {
@@ -136,7 +224,7 @@ export default function Header({
         {/* Logo - Left side */}
         <Link 
           href={homeUrl} 
-          className="flex shrink-0 items-center focus:outline-none focus:ring-2 focus:ring-teal-deep focus:ring-offset-2 rounded-lg"
+          className="flex shrink-0 items-center gap-2 focus:outline-none focus:ring-2 focus:ring-teal-deep focus:ring-offset-2 rounded-lg"
           aria-label={logo?.alt || "Home"}
         >
           {renderLogo()}
@@ -151,7 +239,7 @@ export default function Header({
               aria-expanded={servicesOpen}
               onClick={() => setServicesOpen((open) => !open)}
               className={`flex items-center gap-1 text-sm font-medium transition-colors lg:text-body ${
-                servicesOpen || pathname.startsWith("/services")
+                servicesOpen || SERVICES_DATA.some(s => isServiceActive(s.href))
                   ? "text-teal-deep"
                   : "text-ink hover:text-teal-deep"
               }`}
@@ -168,27 +256,177 @@ export default function Header({
             </button>
             
             {servicesOpen && (
-              <ul
-                role="menu"
-                className="absolute left-0 top-full mt-2 min-w-[200px] w-56 rounded-xl border border-mist bg-off py-2 shadow-lg animate-in fade-in zoom-in-95 duration-200 lg:w-64 xl:w-72"
-              >
-                {SERVICES.map((service) => (
-                  <li key={service.href} role="none">
-                    <Link
-                      role="menuitem"
-                      href={service.href}
-                      onClick={() => setServicesOpen(false)}
-                      className={`block px-3 py-2 text-sm transition-colors lg:px-4 lg:text-small ${
-                        pathname === service.href
-                          ? "bg-mist text-teal-deep"
-                          : "text-ink hover:bg-mist hover:text-teal-deep"
-                      }`}
-                    >
-                      {service.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <div className="absolute left-0 top-full mt-2 w-[800px] max-h-[70vh] overflow-y-auto rounded-xl border border-mist bg-off py-4 shadow-lg animate-in fade-in zoom-in-95 duration-200">
+                <div className="grid grid-cols-3 gap-4 px-4">
+                  {/* Group services by category for better organization */}
+                  <div>
+                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Core DevOps</p>
+                    <ul className="mt-2 flex flex-col gap-1">
+                      {SERVICES_DATA.filter(s => 
+                        s.href.includes("/devops-") || 
+                        s.href === "/devops-as-a-service" ||
+                        s.href === "/managed-devops-services" ||
+                        s.href === "/devops-for-startups" ||
+                        s.href === "/devops-automation-services" ||
+                        s.href === "/devops-monitoring-observability-services" ||
+                        s.href === "/devsecops-services" ||
+                        s.href === "/ongoing-devops-support" ||
+                        s.href === "/devops-support-for-saas-companies"
+                      ).slice(0, 8).map((service) => (
+                        <li key={service.href}>
+                          <Link
+                            href={service.href}
+                            onClick={() => setServicesOpen(false)}
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
+                                ? "text-teal-deep font-medium"
+                                : "text-ink hover:text-teal-deep hover:underline"
+                            }`}
+                          >
+                            {service.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Cloud & Infrastructure</p>
+                    <ul className="mt-2 flex flex-col gap-1">
+                      {SERVICES_DATA.filter(s => 
+                        s.href.includes("/aws-") ||
+                        s.href.includes("/azure-") ||
+                        s.href.includes("/gcp-") ||
+                        s.href.includes("/google-cloud-") ||
+                        s.href.includes("/cloud-") ||
+                        s.href.includes("/infrastructure-")
+                      ).slice(0, 8).map((service) => (
+                        <li key={service.href}>
+                          <Link
+                            href={service.href}
+                            onClick={() => setServicesOpen(false)}
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
+                                ? "text-teal-deep font-medium"
+                                : "text-ink hover:text-teal-deep hover:underline"
+                            }`}
+                          >
+                            {service.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Kubernetes & Containers</p>
+                    <ul className="mt-2 flex flex-col gap-1">
+                      {SERVICES_DATA.filter(s => 
+                        s.href.includes("/kubernetes-") ||
+                        s.href.includes("/docker-") ||
+                        s.href.includes("/eks-") ||
+                        s.href === "/prometheus-grafana-setup-services"
+                      ).slice(0, 8).map((service) => (
+                        <li key={service.href}>
+                          <Link
+                            href={service.href}
+                            onClick={() => setServicesOpen(false)}
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
+                                ? "text-teal-deep font-medium"
+                                : "text-ink hover:text-teal-deep hover:underline"
+                            }`}
+                          >
+                            {service.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">CI/CD & Pipeline</p>
+                    <ul className="mt-2 flex flex-col gap-1">
+                      {SERVICES_DATA.filter(s => 
+                        s.href.includes("/ci-cd-") ||
+                        s.href.includes("/jenkins-") ||
+                        s.href.includes("/github-actions") ||
+                        s.href.includes("/gitlab-") ||
+                        s.href.includes("/datadog-") ||
+                        s.href.includes("/secure-ci-cd")
+                      ).slice(0, 6).map((service) => (
+                        <li key={service.href}>
+                          <Link
+                            href={service.href}
+                            onClick={() => setServicesOpen(false)}
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
+                                ? "text-teal-deep font-medium"
+                                : "text-ink hover:text-teal-deep hover:underline"
+                            }`}
+                          >
+                            {service.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Terraform & IaC</p>
+                    <ul className="mt-2 flex flex-col gap-1">
+                      {SERVICES_DATA.filter(s => 
+                        s.href.includes("/terraform-") ||
+                        s.href.includes("/infrastructure-as-code") ||
+                        s.href.includes("/infrastructure-automation")
+                      ).slice(0, 4).map((service) => (
+                        <li key={service.href}>
+                          <Link
+                            href={service.href}
+                            onClick={() => setServicesOpen(false)}
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
+                                ? "text-teal-deep font-medium"
+                                : "text-ink hover:text-teal-deep hover:underline"
+                            }`}
+                          >
+                            {service.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Specialized</p>
+                    <ul className="mt-2 flex flex-col gap-1">
+                      {SERVICES_DATA.filter(s => 
+                        s.href.includes("/devops-for-") ||
+                        s.href.includes("/white-label-") ||
+                        s.href.includes("/llm-") ||
+                        s.href.includes("/gpu-") ||
+                        s.href.includes("/mlops-") ||
+                        s.href.includes("/pci-dss") ||
+                        s.href.includes("/hire-")
+                      ).slice(0, 8).map((service) => (
+                        <li key={service.href}>
+                          <Link
+                            href={service.href}
+                            onClick={() => setServicesOpen(false)}
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
+                                ? "text-teal-deep font-medium"
+                                : "text-ink hover:text-teal-deep hover:underline"
+                            }`}
+                          >
+                            {service.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             )}
           </div>
 
@@ -216,7 +454,6 @@ export default function Header({
 
         {/* Mobile/Tablet CTA and Menu Toggle - Right side */}
         <div className="flex items-center gap-2 xl:hidden">
-          {/* Mobile CTA - visible on tablet and mobile */}
           <Button 
             href="/contact" 
             className="whitespace-nowrap text-xs px-3 py-1.5 sm:text-sm sm:px-4 sm:py-2"
@@ -224,7 +461,6 @@ export default function Header({
             Book a Call
           </Button>
 
-          {/* Mobile Menu Toggle */}
           <button
             type="button"
             aria-expanded={mobileOpen}
@@ -265,17 +501,40 @@ export default function Header({
           aria-label="Mobile"
           className="border-t border-mist bg-off px-4 py-4 md:hidden animate-in slide-in-from-top duration-200 max-h-[calc(100vh-4rem)] overflow-y-auto"
         >
+          {/* Top Services */}
+          <div className="mb-4">
+            <p className="font-semibold text-xs text-mono-label tracking-[0.12em] text-slate uppercase">
+              Popular Services
+            </p>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              {TOP_SERVICES.map((service) => (
+                <Link
+                  key={service.href}
+                  href={service.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`rounded-lg border border-mist px-3 py-2 text-sm transition-colors ${
+                    isServiceActive(service.href)
+                      ? "border-teal-deep bg-teal-deep/5 text-teal-deep font-medium"
+                      : "hover:border-teal-deep/30 hover:bg-mist"
+                  }`}
+                >
+                  {service.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <p className="font-mono text-xs text-mono-label tracking-[0.12em] text-slate uppercase">
-            Services
+            All Services
           </p>
           <ul className="mt-2 flex flex-col gap-1">
-            {SERVICES.map((service) => (
+            {SERVICES_DATA.map((service) => (
               <li key={service.href}>
                 <Link
                   href={service.href}
                   onClick={() => setMobileOpen(false)}
                   className={`block py-2 text-sm transition-colors ${
-                    pathname === service.href
+                    isServiceActive(service.href)
                       ? "text-teal-deep font-medium"
                       : "text-ink hover:text-teal-deep"
                   }`}
