@@ -1,0 +1,17 @@
+export const TOOLS: string[] = [
+  "AWS",
+  "Azure",
+  "GCP",
+  "Docker",
+  "Kubernetes",
+  "Terraform",
+  "Jenkins",
+  "GitHub Actions",
+  "GitLab CI",
+  "Prometheus",
+  "Grafana",
+  "Datadog",
+  "Ansible",
+  "Helm",
+  "Linux",
+];

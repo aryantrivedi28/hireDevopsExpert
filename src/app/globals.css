@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/*
+ * Brand tokens (source of truth: approved brand guidelines).
+ * Defined once as CSS variables, then mapped into Tailwind's
+ * theme via @theme so both `var(--ink)` and utilities like
+ * `bg-ink` / `text-slate` are available.
+ */
+:root {
+  --ink: #1c2b3a;
+  --slate: #3e5c76;
+  --teal: #4e8378;
+  --teal-deep: #3c6e63;
+  --gray: #8896a3;
+  --mist: #eef2f5;
+  --off: #f7f9fa;
+
+  /* Derived surfaces (shade/tint variants of the tokens above, background use only). */
+  --ink-deep: #16222e;
+  --ink-soft: #243447;
+  --mist-teal: #e9efec;
+  --line-dark: #2a3a4c;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-slate: var(--slate);
+  --color-teal: var(--teal);
+  --color-teal-deep: var(--teal-deep);
+  --color-gray: var(--gray);
+  --color-mist: var(--mist);
+  --color-off: var(--off);
+  --color-ink-deep: var(--ink-deep);
+  --color-ink-soft: var(--ink-soft);
+  --color-mist-teal: var(--mist-teal);
+  --color-line-dark: var(--line-dark);
+
+  --font-sans: var(--font-ibm-plex-sans);
+  --font-mono: var(--font-ibm-plex-mono);
+
+  /* Type scale, named roles rather than raw sizes, per brand brief. */
+  --text-display: clamp(2.25rem, 1.1rem + 4.5vw, 4.75rem);
+  --text-display--line-height: 1.08;
+  --text-display--font-weight: 600;
+
+  --text-h2: 1.875rem;
+  --text-h2--line-height: 1.18;
+  --text-h2--font-weight: 600;
+
+  --text-h3: 1.1875rem;
+  --text-h3--line-height: 1.25;
+  --text-h3--font-weight: 500;
+
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.7;
+  --text-body--font-weight: 400;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.5;
+  --text-small--font-weight: 400;
+
+  --text-mono-label: 0.8125rem;
+  --text-mono-label--line-height: 1.5;
+  --text-mono-label--font-weight: 500;
+}
+
+body {
+  background: var(--off);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a,
+button {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
