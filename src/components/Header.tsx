@@ -13,7 +13,7 @@ const NAV_LINKS = [
   { label: "Blog", href: "/blog" },
 ];
 
-// All services organized by category based on your folder structure
+// All services - without trailing slashes
 const SERVICES_DATA = [
   // Core DevOps Services
   { label: "DevOps as a Service", href: "/devops-as-a-service" },
@@ -184,11 +184,16 @@ export default function Header({
   const isActiveLink = (href: string) => {
     if (href === "/") return pathname === "/";
     if (href.startsWith("/#")) return pathname === "/";
-    return pathname === href || pathname.startsWith(href + "/");
+    // Remove trailing slash for comparison
+    const cleanPathname = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+    const cleanHref = href.endsWith("/") ? href.slice(0, -1) : href;
+    return cleanPathname === cleanHref || cleanPathname.startsWith(cleanHref + "/");
   };
 
   const isServiceActive = (href: string) => {
-    return pathname === href || pathname.startsWith(href);
+    const cleanPathname = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
+    const cleanHref = href.endsWith("/") ? href.slice(0, -1) : href;
+    return cleanPathname === cleanHref || cleanPathname.startsWith(cleanHref);
   };
 
   // Render logo or fallback text
@@ -260,7 +265,7 @@ export default function Header({
                 <div className="grid grid-cols-3 gap-4 px-4">
                   {/* Group services by category for better organization */}
                   <div>
-                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Core DevOps</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-slate">Core DevOps</p>
                     <ul className="mt-2 flex flex-col gap-1">
                       {SERVICES_DATA.filter(s => 
                         s.href.includes("/devops-") || 
@@ -291,7 +296,7 @@ export default function Header({
                   </div>
 
                   <div>
-                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Cloud & Infrastructure</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-slate">Cloud & Infrastructure</p>
                     <ul className="mt-2 flex flex-col gap-1">
                       {SERVICES_DATA.filter(s => 
                         s.href.includes("/aws-") ||
@@ -319,7 +324,7 @@ export default function Header({
                   </div>
 
                   <div>
-                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Kubernetes & Containers</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-slate">Kubernetes & Containers</p>
                     <ul className="mt-2 flex flex-col gap-1">
                       {SERVICES_DATA.filter(s => 
                         s.href.includes("/kubernetes-") ||
@@ -345,7 +350,7 @@ export default function Header({
                   </div>
 
                   <div>
-                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">CI/CD & Pipeline</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-slate">CI/CD & Pipeline</p>
                     <ul className="mt-2 flex flex-col gap-1">
                       {SERVICES_DATA.filter(s => 
                         s.href.includes("/ci-cd-") ||
@@ -373,7 +378,7 @@ export default function Header({
                   </div>
 
                   <div>
-                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Terraform & IaC</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-slate">Terraform & IaC</p>
                     <ul className="mt-2 flex flex-col gap-1">
                       {SERVICES_DATA.filter(s => 
                         s.href.includes("/terraform-") ||
@@ -398,7 +403,7 @@ export default function Header({
                   </div>
 
                   <div>
-                    <p className="font-semibold text-xs uppercase tracking-[0.12em] text-slate">Specialized</p>
+                    <p className="font-mono text-xs uppercase tracking-[0.12em] text-slate">Specialized</p>
                     <ul className="mt-2 flex flex-col gap-1">
                       {SERVICES_DATA.filter(s => 
                         s.href.includes("/devops-for-") ||
@@ -503,7 +508,7 @@ export default function Header({
         >
           {/* Top Services */}
           <div className="mb-4">
-            <p className="font-semibold text-xs text-mono-label tracking-[0.12em] text-slate uppercase">
+            <p className="font-mono text-xs text-mono-label tracking-[0.12em] text-slate uppercase">
               Popular Services
             </p>
             <div className="mt-2 grid grid-cols-2 gap-2">
