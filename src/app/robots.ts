@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/styleguide"],
     },
-    sitemap: "https://hiredevopsexpert.com/sitemap.xml",
+    sitemap: "https://www.hiredevopsexpert.com/sitemap.xml",
   };
 }
