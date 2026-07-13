@@ -128,26 +128,26 @@ export default function Footer() {
               <div className="flex items-center gap-2 text-gray">
                 <Mail className="h-4 w-4 shrink-0 text-teal" />
                 <a
-                  href="mailto:hello@hiredevopsexpert.com"
+                  href="mailto:aryan@hiredevopsexpert.com"
                   className="hover:text-teal transition-colors"
                   aria-label="Email us"
                 >
-                  hello@hiredevopsexpert.com
+                  aryan@hiredevopsexpert.com
                 </a>
               </div>
               <div className="flex items-center gap-2 text-gray">
                 <Phone className="h-4 w-4 shrink-0 text-teal" />
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+919893270210"
                   className="hover:text-teal transition-colors"
                   aria-label="Call us"
                 >
-                  +1 (234) 567-890
+                  +91 98932 70210
                 </a>
               </div>
               <div className="flex items-start gap-2 text-gray">
                 <MapPin className="h-4 w-4 shrink-0 text-teal mt-0.5" />
-                <span>San Francisco, CA</span>
+                <span>Gurugram, India</span>
               </div>
             </div>
           </div>

@@ -51,19 +51,19 @@ const CONTACT_INFO = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@hiredevopsexpert.com",
-    href: "mailto:hello@hiredevopsexpert.com",
+    value: "aryan@hiredevopsexpert.com",
+    href: "mailto:aryan@hiredevopsexpert.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (234) 567-890",
-    href: "tel:+1234567890",
+    value: "+91 98932 70210",
+    href: "tel:+919893270210",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Gurugram, India",
     href: null,
   },
 ];
