@@ -11,7 +11,6 @@ import WhoWeHelp from "@/components/home/WhoWeHelp";
 import SocialProof from "@/components/home/SocialProof";
 import Faq from "@/components/home/Faq";
 import FinalCta from "@/components/home/FinalCta";
-// import { jsonLdScript } from "@/lib/jsonLd";, re-add when Organization schema is enabled below
 
 export const metadata: Metadata = {
   title: "Hire a DevOps Expert | Done-for-You In-House DevOps Team",
@@ -19,24 +18,6 @@ export const metadata: Metadata = {
     "Hire an in-house DevOps team to set up CI/CD, manage AWS/Azure/GCP infrastructure, run Kubernetes, and keep production stable, for startups, SaaS, and agencies.",
 };
 
-// Organization schema lives here (homepage) rather than the root layout: current Google
-// guidance says it only needs to appear once per site, not duplicated on every page.
-//
-// PLACEHOLDER, do not enable until real values exist:
-//  , `name`: real legal/brand name (do not guess)
-//  , `sameAs`: real LinkedIn/social URLs (omit the field entirely if none)
-//  , `logo`: omit until a real logo asset exists in /public
-//  , `address`, `telephone`, `aggregateRating`, `review`: omit unless real
-//
-// The block is left unrendered (not emitted with placeholder text) rather than shipping
-// fabricated data. Uncomment and fill in real values before launch.
-//
-// const ORGANIZATION_JSON_LD = {
-//   "@context": "https://schema.org",
-//   "@type": "Organization",
-//   name: "<real legal/brand name>",
-//   url: "https://hiredevopsexpert.com",
-// };
 
 export default function Home() {
   return (

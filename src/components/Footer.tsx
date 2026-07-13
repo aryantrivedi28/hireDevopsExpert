@@ -210,30 +210,30 @@ export default function Footer() {
           </div>
 
           {/* Legal Links */}
-          <div className="flex flex-wrap items-center gap-2 text-xs text-gray md:text-sm order-1 md:order-2">
+          {/* <div className="flex flex-wrap items-center gap-2 text-xs text-gray md:text-sm order-1 md:order-2">
             <span>© {year} hiredevopsexpert.com</span>
             <span className="hidden sm:inline">·</span>
             <Link
-              href="/privacy/"
+              href="/privacy"
               className="hover:text-teal transition-colors"
             >
               Privacy Policy
             </Link>
             <span>·</span>
             <Link
-              href="/terms/"
+              href="/terms"
               className="hover:text-teal transition-colors"
             >
               Terms of Service
             </Link>
             <span>·</span>
             <Link
-              href="/cookies/"
+              href="/cookies"
               className="hover:text-teal transition-colors"
             >
               Cookie Policy
             </Link>
-          </div>
+          </div> */}
         </div>
       </Container>
     </footer>

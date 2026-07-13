@@ -15,11 +15,6 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
-      {
-        source: "/hire-devops-expert/",
-        destination: "/",
-        permanent: true,
-      },
     ];
   },
 };

@@ -25,7 +25,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hiredevopsexpert.com"),
+  metadataBase: new URL("https://www.hiredevopsexpert.com"),
   title: {
     default: "Hire DevOps Expert | Senior DevOps Engineers for Startups",
     template: "%s | Hire DevOps Expert",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Hire DevOps Expert | Senior DevOps Engineers for Startups",
     description: "Hire senior DevOps engineers and cloud infrastructure experts. Get production-grade CI/CD, Kubernetes, and AWS infrastructure for your startup.",
-    url: "https://hiredevopsexpert.com",
+    url: "https://www.hiredevopsexpert.com",
     siteName: "Hire DevOps Expert",
     locale: "en_US",
     type: "website",
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   alternates: {
-    canonical: "https://hiredevopsexpert.com",
+    canonical: "https://www.hiredevopsexpert.com",
   },
   verification: {
     google: "google-site-verification-code",
@@ -121,16 +121,16 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Hire DevOps Expert",
-  url: "https://hiredevopsexpert.com",
-  logo: "https://hiredevopsexpert.com/logo.png",
+  url: "https://www.hiredevopsexpert.com",
+  logo: "https://www.hiredevopsexpert.com/icon.png",
   description: "Senior DevOps and cloud infrastructure expertise for startups and growing companies.",
-  email: "hello@hiredevopsexpert.com",
-  telephone: "+1-234-567-890",
+  email: "aryan@hiredevopsexpert.com",
+  telephone: "+91 98932 70210",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "San Francisco",
-    addressRegion: "CA",
-    addressCountry: "US",
+    addressLocality: "Gurugram",
+    addressRegion: "HR",
+    addressCountry: "IN",
   },
   sameAs: [
     "https://linkedin.com/company/hiredevopsexpert",
