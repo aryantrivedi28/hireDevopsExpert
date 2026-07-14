@@ -7,7 +7,7 @@ import Link from "next/link";
 
 // GoHighLevel Webhook URL
 // Replace with your actual GoHighLevel webhook URL
-const GOHIGHLEVEL_WEBHOOK_URL = "https://your-gohighlevel-webhook-url.com";
+const GOHIGHLEVEL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/tLgocxm8SbQdnP97RnEb/webhook-trigger/a36559c3-66a1-4ae1-aec4-c6a038fa3dae";
 
 interface FormData {
   name: string;
