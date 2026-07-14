@@ -406,10 +406,8 @@ const PAGES: SitemapPage[] = [
   },
 ];
 
-// Helper function to get last modified date
+
 function getLastModified(path: string): string {
-  // You can replace this with actual data from your CMS
-  // For now, use a reasonable default based on path type
   const now = new Date();
   
   if (path === "/") {
