@@ -152,7 +152,7 @@ export default function ContactForm() {
       console.error("Form submission error:", error);
       setSubmitStatus({
         type: "error",
-        message: "Something went wrong. Please try again or email us directly at hello@hiredevopsexpert.com",
+        message: "Something went wrong. Please try again or email us directly at aryan@hiredevopsexpert.com",
       });
     } finally {
       setIsSubmitting(false);
