@@ -32,7 +32,7 @@ export default function Home() {
       <Tools />
       <Process />
       <WhoWeHelp />
-      <SocialProof />
+      {/* <SocialProof /> */}
       <Faq />
       <FinalCta />
     </>
