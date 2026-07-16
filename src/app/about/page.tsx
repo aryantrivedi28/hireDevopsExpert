@@ -58,9 +58,9 @@ const TEAM_MEMBERS = [
   {
     name: "Adarsh Tiwari",
     role: "Project Management Intern",
-    bio: "/* PLACEHOLDER: real 1-2 line bio for Adarsh Tiwari */",
-    linkedin: "/* PLACEHOLDER: real LinkedIn URL */",
-    // image: "/team/adarsh-tiwari.jpg",
+    bio: "Adarsh manages the operational backbone of this project from brand guidelines through to building the whole structure working closely with the team members and under founder's supervision.",
+    linkedin: "https://www.linkedin.com/in/adarsh-tiwari-b1448a21b",
+    image: "/team/adarsh.png",
     initials: "AT",
   },
 ];
