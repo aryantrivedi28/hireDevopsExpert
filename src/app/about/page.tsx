@@ -19,10 +19,12 @@ import {
   Award,
   Mail,
   Calendar,
-//   Linkedin,
-//   Github
+  Target,
+  Zap,
+  Heart,
+  Star
 } from "lucide-react";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
 
 export const metadata: Metadata = {
   title: "About | hiredevopsexpert.com",
@@ -38,34 +40,44 @@ export const metadata: Metadata = {
 // Team members data - EXACTLY as specified
 const TEAM_MEMBERS = [
   {
-    name: "Aryan Trivedi",
-    role: "Founder",
-    bio: "/* PLACEHOLDER: real 1-2 line bio */",
-    linkedin: "/* PLACEHOLDER: real LinkedIn URL */",
-    image: "/team/aryan-trivedi.jpg", // Replace with actual image path
-  },
-  {
     name: "Kunal Sharma",
     role: "Tech Lead",
-    bio: "/* PLACEHOLDER: real 1-2 line bio */",
-    linkedin: "/* PLACEHOLDER: real LinkedIn URL */",
-    image: "/team/kunal-sharma.jpg", // Replace with actual image path
+    bio: "Kunal is the technical brain behind the team. He owns the architecture decisions, internal tooling, system design, and engineering standards across the organization. He does not work on client projects directly—instead, he builds the frameworks, templates, and processes that every client project is built on top of. When a system scales without breaking, it is because Kunal designed the foundation.",
+    linkedin: "https://www.linkedin.com/in/kunal-kumar-2ab402263",
+    image: "/team/kunal.png",
+    initials: "KS",
   },
   {
     name: "Radhika",
     role: "Growth Associate",
-    bio: "/* PLACEHOLDER: real 1-2 line bio */",
-    linkedin: "/* PLACEHOLDER: real LinkedIn URL */",
-    image: "/team/radhika.jpg", // Replace with actual image path
+    bio: "Drives client acquisition, partnerships, and brand growth. Radhika connects the dots between what clients need and what we deliver—handling outreach, onboarding coordination, and making sure every project starts with clear goals and ends with measurable outcomes. She is the first person most clients speak with.",
+    linkedin: "https://www.linkedin.com/in/radhika-agrawal-22238a201",
+    image: "/team/radhika.jpg",
+    initials: "RD",
   },
   {
     name: "Adarsh Tiwari",
     role: "Project Management Intern",
-    bio: "/* PLACEHOLDER: real 1-2 line bio */",
+    bio: "/* PLACEHOLDER: real 1-2 line bio for Adarsh Tiwari */",
     linkedin: "/* PLACEHOLDER: real LinkedIn URL */",
-    image: "/team/adarsh-tiwari.jpg", // Replace with actual image path
+    // image: "/team/adarsh-tiwari.jpg",
+    initials: "AT",
   },
 ];
+
+// Founder details
+const FOUNDER = {
+  name: "Aryan Trivedi",
+  role: "Founder",
+  bio: [
+    "Aryan is a product strategist and entrepreneur who built hiredevopsexpert from the ground up—starting as a freelancer network for startups and evolving it into a full-stack execution partner specializing in DevOps, cloud infrastructure, and automation.",
+    "After personally overseeing 50+ DevOps projects across startups, SaaS companies, and agencies in multiple countries, Aryan launched hiredevopsexpert to solve a recurring problem: most businesses invest in cloud infrastructure but never get the architecture right.",
+    "His approach is simple: understand how the business sells, then build the infrastructure that makes that process faster and more automated. No generic templates. No overengineered setups. Just systems that hold up at scale.",
+  ],
+  linkedin: "https://www.linkedin.com/in/aryantrivedi",
+  image: "/team/aryan_t.jpg",
+  initials: "AT",
+};
 
 // Values/Pillars - confirm each is true
 const VALUES = [
@@ -89,14 +101,6 @@ const VALUES = [
     title: "No Sales Pitch",
     description: "A technical conversation, not a pitch. You talk directly to engineers who understand your infrastructure challenges.",
   },
-];
-
-// Stats - Only fill with REAL figures or omit
-const STATS = [
-  { label: "Projects Delivered", value: "50+", icon: Briefcase },
-  { label: "Happy Clients", value: "30+", icon: Users },
-  { label: "Cloud Platforms", value: "3", icon: Cloud },
-  { label: "Years Experience", value: "5+", icon: Award },
 ];
 
 export default function AboutPage() {
@@ -140,10 +144,6 @@ export default function AboutPage() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-            {/* PLACEHOLDER: one real sentence on what you're known for / who you serve */}
-            <p className="mt-6 text-sm text-gray/60">
-              {/* PLACEHOLDER: real sentence on what you're known for */}
-            </p>
           </div>
         </div>
       </section>
@@ -157,13 +157,15 @@ export default function AboutPage() {
               Built from real DevOps experience
             </h2>
             <div className="mt-6 space-y-4 text-lg text-slate">
-              {/* PLACEHOLDER: real founding story - when it started, and the real problem you kept seeing that made you start */}
               <p>
-                {/* PLACEHOLDER: Real founding story - 2-4 honest sentences */}
-                {/* Example structure: Name a recurring problem you saw → say you were already solving it → say you launched a dedicated brand to focus on it */}
+                {/* PLACEHOLDER: real founding story - when it started */}
+                {/* Example: Started in 2023 when we kept seeing startups struggle with cloud infrastructure... */}
               </p>
               <p>
-                {/* PLACEHOLDER: Continue the story */}
+                {/* PLACEHOLDER: Continue the story - the problem you kept seeing */}
+              </p>
+              <p>
+                {/* PLACEHOLDER: How you launched to solve it */}
               </p>
             </div>
             <div className="mt-8 rounded-xl border border-mist bg-off p-6 md:p-8">
@@ -176,8 +178,61 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      {/* n.003 - WHAT DRIVES US (Surface: mist) */}
+      {/* Founder Section (Surface: mist) */}
       <Section className="border-y border-mist bg-mist py-16 md:py-24">
+        <Container>
+          <div className="mx-auto max-w-[68ch]">
+            <Eyebrow tone="teal-deep">The Founder</Eyebrow>
+            <div className="mt-8 flex flex-col items-start gap-8 md:flex-row md:gap-12">
+              {/* Founder Image */}
+              <div className="shrink-0">
+                <div className="h-32 w-32 overflow-hidden rounded-full bg-teal-deep/20 md:h-40 md:w-40">
+                  {FOUNDER.image ? (
+                    <Image
+                      src={FOUNDER.image}
+                      alt={`${FOUNDER.name} - ${FOUNDER.role}`}
+                      width={160}
+                      height={160}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-teal-deep/30 text-3xl font-semibold text-white">
+                      {FOUNDER.initials}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Founder Info */}
+              <div>
+                <h3 className="text-2xl font-semibold text-ink">{FOUNDER.name}</h3>
+                <p className="text-sm font-medium text-teal-deep">{FOUNDER.role}</p>
+                <div className="mt-4 space-y-3 text-sm text-slate md:text-base">
+                  {FOUNDER.bio.map((paragraph, index) => (
+                    <p key={index} className="leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+                <div className="mt-5 flex gap-2.5">
+                  <Link
+                    href={FOUNDER.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg border border-mist bg-white text-slate transition-all hover:bg-[#0E9BF0] hover:text-white"
+                    aria-label={`${FOUNDER.name}'s LinkedIn`}
+                  >
+                    <FaLinkedin className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* n.003 - WHAT DRIVES US (Surface: off) */}
+      <Section className="py-16 md:py-24">
         <Container>
           <div className="text-center">
             <Eyebrow tone="teal-deep">n.003 — What Drives Us</Eyebrow>
@@ -230,11 +285,11 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {TEAM_MEMBERS.map((member) => (
               <div
                 key={member.name}
-                className="rounded-xl border border-[#2A3A4C] bg-ink-soft p-6 text-center transition-transform hover:-translate-y-1 md:p-8"
+                className="rounded-xl border border-[#2A3A4C] bg-ink-soft p-6 transition-transform hover:-translate-y-1 md:p-8"
               >
                 {/* Photo / Avatar */}
                 <div className="mx-auto h-24 w-24 overflow-hidden rounded-full bg-teal-deep/20">
@@ -248,28 +303,28 @@ export default function AboutPage() {
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center bg-teal-deep/30 text-2xl font-semibold text-white">
-                      {member.name.split(' ').map(n => n[0]).join('')}
+                      {member.initials}
                     </div>
                   )}
                 </div>
 
                 {/* Name - White text for contrast on dark */}
-                <h3 className="mt-4 text-lg font-semibold text-white">
+                <h3 className="mt-4 text-center text-lg font-semibold text-white">
                   {member.name}
                 </h3>
                 
                 {/* Role - Gray text at label size is fine */}
-                <p className="text-sm text-gray">{member.role}</p>
+                <p className="text-center text-sm text-gray">{member.role}</p>
                 
                 {/* Bio - White text for body contrast */}
-                <p className="mt-2 text-sm text-white/80">
+                <p className="mt-3 text-center text-sm text-white/80 leading-relaxed">
                   {member.bio}
                 </p>
 
                 {/* Social Links */}
-                {/* {member.linkedin && member.linkedin !== "/* PLACEHOLDER: real LinkedIn URL  && (
+                {member.linkedin && member.linkedin !== "/* PLACEHOLDER: real LinkedIn URL */" && (
                   <div className="mt-4 flex justify-center gap-3">
-                    <a
+                    <Link
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -277,16 +332,16 @@ export default function AboutPage() {
                       aria-label={`${member.name}'s LinkedIn`}
                     >
                       <FaLinkedin className="h-5 w-5" />
-                    </a>
+                    </Link>
                   </div>
-                )} */}
+                )}
               </div>
             ))}
           </div>
 
-          {/* <p className="mt-8 text-center text-sm text-gray/60">
-            {/* PLACEHOLDER: optional team note 
-          </p> */}
+          <p className="mt-8 text-center text-sm text-gray/60">
+            {/* PLACEHOLDER: optional team note */}
+          </p>
         </Container>
       </section>
 
@@ -324,34 +379,35 @@ export default function AboutPage() {
       </Section>
 
       {/* n.006 - BY THE NUMBERS (Surface: mist-teal) - OPTIONAL */}
-      {STATS.length > 0 && (
-        <section className="border-y border-mist bg-mist/50 py-12 md:py-16">
-          <Container>
+      {/* Uncomment when you have real stats */}
+      {/* <section className="border-y border-mist bg-mist/50 py-12 md:py-16">
+        <Container>
+          <div className="text-center">
+            <Eyebrow tone="teal-deep">n.006 — By the Numbers</Eyebrow>
+            <h2 className="mt-4 text-2xl font-semibold text-ink md:text-3xl">
+              Some numbers we're proud of
+            </h2>
+          </div>
+          <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
             <div className="text-center">
-              <Eyebrow tone="teal-deep">n.006 — By the Numbers</Eyebrow>
-              <h2 className="mt-4 text-2xl font-semibold text-ink md:text-3xl">
-                Some numbers we&apos;re proud of
-              </h2>
+              <div className="text-3xl font-bold text-teal-deep md:text-4xl">50+</div>
+              <p className="text-sm text-slate">Projects Delivered</p>
             </div>
-            <div className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-4">
-              {STATS.map((stat) => {
-                const Icon = stat.icon;
-                return (
-                  <div key={stat.label} className="text-center">
-                    <div className="flex justify-center">
-                      <Icon className="h-8 w-8 text-teal-deep" />
-                    </div>
-                    <div className="mt-2 text-3xl font-bold text-ink md:text-4xl">
-                      {stat.value}
-                    </div>
-                    <p className="text-sm text-slate">{stat.label}</p>
-                  </div>
-                );
-              })}
+            <div className="text-center">
+              <div className="text-3xl font-bold text-teal-deep md:text-4xl">30+</div>
+              <p className="text-sm text-slate">Happy Clients</p>
             </div>
-          </Container>
-        </section>
-      )}
+            <div className="text-center">
+              <div className="text-3xl font-bold text-teal-deep md:text-4xl">3</div>
+              <p className="text-sm text-slate">Cloud Platforms</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-teal-deep md:text-4xl">5+</div>
+              <p className="text-sm text-slate">Years Experience</p>
+            </div>
+          </div>
+        </Container>
+      </section> */}
 
       {/* n.007 - LET'S TALK (Surface: teal-deep - full teal CTA band) */}
       <section className="bg-teal-deep py-16 md:py-20">
