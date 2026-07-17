@@ -27,7 +27,7 @@ export default function Problems() {
   return (
     <Section surface="off" aria-label="Problems we solve">
       <Container>
-        <Eyebrow tone="teal-deep" number="n.001">The problem</Eyebrow>
+        <Eyebrow tone="teal-deep">The problem</Eyebrow>
         <h2 className="mt-3 text-h2 font-semibold text-ink">Sound familiar?</h2>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           {PROBLEMS.map(({ icon: Icon, label }) => (

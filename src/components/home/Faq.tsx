@@ -46,7 +46,7 @@ export default function Faq() {
   return (
     <Section id="faq" surface="mist" aria-label="Frequently asked questions">
       <Container>
-        <Eyebrow tone="teal-deep" number="n.007">Questions</Eyebrow>
+        <Eyebrow tone="teal-deep">Questions</Eyebrow>
         <h2 className="mt-3 text-h2 font-semibold text-ink">Questions we get a lot</h2>
         <div className="mt-8 flex flex-col divide-y divide-gray/30 border-t border-b border-gray/30">
           {FAQS.map((faq, index) => {

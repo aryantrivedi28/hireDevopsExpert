@@ -17,7 +17,7 @@ export default function WhoWeHelp() {
   return (
     <Section surface="mist" aria-label="Who we help">
       <Container>
-        <Eyebrow tone="teal-deep" number="n.006">Audience</Eyebrow>
+        <Eyebrow tone="teal-deep">Audience</Eyebrow>
         <h2 className="mt-3 text-h2 font-semibold text-ink">Who we help</h2>
         <p className="mt-2 max-w-[68ch] text-body text-slate">
           From early-stage builds to scaling platforms, see how we approach{" "}

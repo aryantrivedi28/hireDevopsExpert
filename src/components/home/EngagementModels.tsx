@@ -29,7 +29,7 @@ export default function EngagementModels() {
   return (
     <Section id="how-we-work" surface="off" aria-label="Ways to work with us">
       <Container>
-        <Eyebrow tone="teal-deep" number="n.003">How we work</Eyebrow>
+        <Eyebrow tone="teal-deep">How we work</Eyebrow>
         <h2 className="mt-3 text-h2 font-semibold text-ink">Ways to work with us</h2>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           {MODELS.map((model) => (

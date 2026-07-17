@@ -15,7 +15,7 @@ export default function Process() {
   return (
     <Section id="process" surface="off" aria-label="How it works">
       <Container>
-        <Eyebrow tone="teal-deep" number="n.005">Process</Eyebrow>
+        <Eyebrow tone="teal-deep">Process</Eyebrow>
         <h2 className="mt-3 text-h2 font-semibold text-ink">How it works</h2>
         <p className="mt-2 text-body text-slate">
           It starts with a free technical conversation, not a sales pitch.

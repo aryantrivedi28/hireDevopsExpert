@@ -35,7 +35,7 @@ export default function WhyUs() {
   return (
     <Section id="why-us" surface="ink" aria-label="Why choose us">
       <Container>
-        <Eyebrow tone="gray" number="n.004">Why in-house</Eyebrow>
+        <Eyebrow tone="gray">Why in-house</Eyebrow>
         <h2 className="mt-3 text-h2 font-semibold text-off">
           Why an in-house team beats a marketplace
         </h2>
