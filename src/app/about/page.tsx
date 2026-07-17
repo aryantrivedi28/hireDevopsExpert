@@ -49,7 +49,7 @@ const TEAM_MEMBERS = [
   {
     name: "Radhika",
     role: "Growth Associate",
-    bio: "Drives client acquisition, partnerships, and brand growth. Radhika connects the dots between what clients need and what we deliver—handling outreach, onboarding coordination, and ensuring every project starts with clear goals and ends with measurable outcomes. She is the first person most clients speak with.",
+    bio: "Drives client acquisition, partnerships, and brand growth. Radhika connects the dots between what clients need and what we deliver handling outreach, onboarding coordination, and ensuring every project starts with clear goals and ends with measurable outcomes. She is the first person most clients speak with.",
     linkedin: "https://www.linkedin.com/in/radhika-agrawal-22238a201",
     image: "/team/radhika.jpg",
     initials: "RD",
@@ -57,7 +57,7 @@ const TEAM_MEMBERS = [
   {
     name: "Adarsh Tiwari",
     role: "Project Management Intern",
-    bio: "Adarsh manages the operational backbone of the organization—from brand guidelines to building the complete technical infrastructure. He works closely with the team under the founder's supervision, ensuring smooth project execution and delivery.",
+    bio: "Adarsh manages the operational backbone of the organization from brand guidelines to building the complete technical infrastructure. He works closely with the team under the founder's supervision, ensuring smooth project execution and delivery.",
     linkedin: "https://www.linkedin.com/in/adarsh-tiwari-b1448a21b",
     image: "/team/adarsh.png",
     initials: "AT",
@@ -69,7 +69,7 @@ const FOUNDER = {
   name: "Aryan Trivedi",
   role: "Founder",
   bio: [
-    "Aryan is a product strategist and entrepreneur who built hiredevopsexpert from the ground up—starting as a freelancer network for startups and evolving it into a full-stack execution partner specializing in DevOps, cloud infrastructure, and automation.",
+    "Aryan is a product strategist and entrepreneur who built hiredevopsexpert from the ground up starting as a freelancer network for startups and evolving it into a full-stack execution partner specializing in DevOps, cloud infrastructure, and automation.",
     "After personally overseeing 50+ DevOps projects across startups, SaaS companies, and agencies in multiple countries, Aryan launched hiredevopsexpert to solve a recurring problem: most businesses invest in cloud infrastructure but never get the architecture right.",
     "His approach is simple: understand how the business operates, then build the infrastructure that makes processes faster and more automated. No generic templates. No overengineered setups. Just systems that hold up at scale and drive real business outcomes.",
   ],
@@ -83,7 +83,7 @@ const VALUES = [
   {
     icon: Users,
     title: "Dedicated Team",
-    description: "You work with a dedicated team of DevOps professionals who take full ownership of your infrastructure. No rotating contractors—just committed engineers who care about your success.",
+    description: "You work with a dedicated team of DevOps professionals who take full ownership of your infrastructure. No rotating contractors just committed engineers who care about your success.",
   },
   {
     icon: Rocket,
@@ -93,12 +93,12 @@ const VALUES = [
   {
     icon: Shield,
     title: "Complete Transparency",
-    description: "You own everything—code, infrastructure, and intellectual property. We build with complete transparency and provide full access to all systems and documentation.",
+    description: "You own everything code, infrastructure, and intellectual property. We build with complete transparency and provide full access to all systems and documentation.",
   },
   {
     icon: Clock,
     title: "Technical Excellence",
-    description: "Every conversation is a technical discussion with experienced engineers. No sales pitches—just honest assessments and practical solutions to your infrastructure challenges.",
+    description: "Every conversation is a technical discussion with experienced engineers. No sales pitches just honest assessments and practical solutions to your infrastructure challenges.",
   },
 ];
 
@@ -188,7 +188,7 @@ export default function AboutPage() {
               </p>
               <p>
                 {/* PLACEHOLDER: How you launched */}
-                That's why we built hiredevopsexpert—to give startups and growing companies 
+                That's why we built hiredevopsexpert to give startups and growing companies 
                 access to production-grade DevOps without the overhead of building an 
                 in-house team from scratch.
               </p>
@@ -204,7 +204,7 @@ export default function AboutPage() {
                     {/* PLACEHOLDER: Mission statement */}
                     To make production-grade DevOps accessible to every growing company, 
                     enabling them to ship faster, scale confidently, and focus on what 
-                    matters—building great products.
+                    matters building great products.
                   </p>
                 </div>
               </div>
@@ -407,7 +407,7 @@ export default function AboutPage() {
             </h2>
             <p className="mt-4 text-lg text-slate">
               The first call is always free. You talk directly to a senior engineer 
-              who understands your infrastructure challenges—not a sales representative.
+              who understands your infrastructure challenges not a sales representative.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link

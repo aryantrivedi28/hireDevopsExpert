@@ -35,9 +35,9 @@ export default function WhyUs() {
   return (
     <Section id="why-us" surface="ink" aria-label="Why choose us">
       <Container>
-        <Eyebrow tone="gray">Why in-house</Eyebrow>
+        <Eyebrow tone="gray">Why Us</Eyebrow>
         <h2 className="mt-3 text-h2 font-semibold text-off">
-          Why an in-house team beats a marketplace
+          Why Our team beats a marketplace
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
           {POINTS.map(({ icon: Icon, title, line }) => (
