@@ -414,7 +414,7 @@ function getLastModified(path: string): string {
     return now.toISOString();
   }
   
-  if (path.startsWith("/blog/")) {
+  if (path.startsWith("/blog")) {
     // Blog posts - assume updated within last 30 days
     const date = new Date(now);
     date.setDate(date.getDate() - Math.floor(Math.random() * 30));

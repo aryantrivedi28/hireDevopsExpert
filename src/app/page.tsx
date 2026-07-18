@@ -12,12 +12,6 @@ import SocialProof from "@/components/home/SocialProof";
 import Faq from "@/components/home/Faq";
 import FinalCta from "@/components/home/FinalCta";
 
-export const metadata: Metadata = {
-  title: "Hire a DevOps Expert | Done-for-You In-House DevOps Team",
-  description:
-    "Hire an in-house DevOps team to set up CI/CD, manage AWS/Azure/GCP infrastructure, run Kubernetes, and keep production stable, for startups, SaaS, and agencies.",
-};
-
 
 export default function Home() {
   return (

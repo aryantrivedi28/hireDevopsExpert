@@ -3,7 +3,7 @@ import Section from "@/components/Section";
 
 const ITEMS = [
   "Works across AWS, Azure & GCP",
-  "One accountable in-house team",
+  "One accountable dedicated team",
   "NDA before we start",
   "You own all code",
 ];

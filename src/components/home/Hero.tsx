@@ -12,10 +12,10 @@ export default function Hero() {
         <div>
           <Eyebrow tone="gray">Hire a DevOps Expert</Eyebrow>
           <h1 className="mt-4 text-display font-semibold text-off">
-            Hire a DevOps Expert, done-for-you by an in-house team.
+            Hire a DevOps Expert, done-for-you by an dedicated team.
           </h1>
           <p className="mt-6 max-w-[46ch] text-body text-gray">
-            Our in-house DevOps team sets up, automates, and manages your
+            Our dedicated DevOps team sets up, automates, and manages your
             infrastructure, CI/CD, AWS/Azure/GCP, Kubernetes, and monitoring, as
             an extension of your engineering team.
           </p>

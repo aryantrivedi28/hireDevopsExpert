@@ -190,7 +190,7 @@ export default function AboutPage() {
                 {/* PLACEHOLDER: How you launched */}
                 That's why we built hiredevopsexpert to give startups and growing companies 
                 access to production-grade DevOps without the overhead of building an 
-                in-house team from scratch.
+                dedicated team from scratch.
               </p>
             </div>
             <div className="mt-8 rounded-xl border border-mist bg-white p-6 shadow-sm md:p-8">

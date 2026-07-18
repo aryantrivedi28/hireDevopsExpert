@@ -125,7 +125,7 @@ export default function WhiteLabelDevOpsServicesPage() {
         eyebrow="White Label DevOps Services"
         title="White Label DevOps Services"
         subtitle="DevOps delivered under your brand, for your clients, we stay invisible, you stay the expert. Built for agencies and MSPs who need DevOps capacity without hiring."
-        primaryCta={{ label: "Book a DevOps consultation", href: "/contact/" }}
+        primaryCta={{ label: "Book a DevOps consultation", href: "/contact" }}
         secondaryCta={{ label: "How white-label works", href: "#what" }}
       />
 

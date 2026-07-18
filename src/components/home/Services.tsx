@@ -6,7 +6,7 @@ import Eyebrow from "@/components/Eyebrow";
 const SERVICE_CARDS = [
   {
     title: "Hire a DevOps Engineer",
-    line: "Bring in an experienced DevOps engineer from our in-house team.",
+    line: "Bring in an experienced DevOps engineer from our dedicated team.",
     href: "/hire-devops-engineer",
   },
   {
@@ -86,7 +86,7 @@ export default function Services() {
           <Link href="/aws-devops-services" className="text-teal-deep underline">
             AWS DevOps services
           </Link>
-          , Kubernetes, Terraform, and more, one in-house team covering the full
+          , Kubernetes, Terraform, and more, one dedicated team covering the full
           stack.
         </p>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">

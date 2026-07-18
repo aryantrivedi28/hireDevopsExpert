@@ -27,10 +27,10 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.hiredevopsexpert.com"),
   title: {
-    default: "Hire DevOps Expert | Senior DevOps Engineers for Startups",
+    default: "Hire a DevOps Expert | AWS, Azure, Kubernetes & CI/CD",
     template: "%s | Hire DevOps Expert",
   },
-  description: "Hire senior DevOps engineers and cloud infrastructure experts. Get production-grade CI/CD, Kubernetes, and AWS infrastructure for your startup.",
+  description: "Hire experienced DevOps engineers for AWS, Azure, GCP, Kubernetes, Terraform, and CI/CD automation. Scale infrastructure reliably with dedicated DevOps support.",
   keywords: [
     "Hire DevOps Engineer",
     "DevOps Services",
