@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 380" font-family="'IBM Plex Sans', Arial, sans-serif">
+  <!-- row labels -->
+  <text x="30" y="120" fill="#3E5C76" font-size="12" font-weight="700" letter-spacing="1.5" transform="rotate(-90 30 120)">THROUGHPUT</text>
+  <text x="30" y="300" fill="#3C6E63" font-size="12" font-weight="700" letter-spacing="1.5" transform="rotate(-90 30 300)">STABILITY</text>
+
+  <!-- Card: Deployment frequency -->
+  <rect x="55" y="40" width="355" height="140" rx="12" fill="#EEF2F5" stroke="#3E5C76" stroke-width="1.5"/>
+  <text x="80" y="78" fill="#1C2B3A" font-size="18" font-weight="600">Deployment frequency</text>
+  <text x="80" y="106" fill="#3E5C76" font-size="13.5">How often you ship to production.</text>
+  <text x="80" y="150" fill="#3C6E63" font-size="13" font-weight="600">Elite target: on demand</text>
+
+  <!-- Card: Lead time for changes -->
+  <rect x="430" y="40" width="355" height="140" rx="12" fill="#EEF2F5" stroke="#3E5C76" stroke-width="1.5"/>
+  <text x="455" y="78" fill="#1C2B3A" font-size="18" font-weight="600">Lead time for changes</text>
+  <text x="455" y="106" fill="#3E5C76" font-size="13.5">Time from commit to production.</text>
+  <text x="455" y="150" fill="#3C6E63" font-size="13" font-weight="600">Elite target: under a day</text>
+
+  <!-- Card: Change failure rate -->
+  <rect x="55" y="200" width="355" height="140" rx="12" fill="#E3EDEA" stroke="#3C6E63" stroke-width="1.5"/>
+  <text x="80" y="238" fill="#1C2B3A" font-size="18" font-weight="600">Change failure rate</text>
+  <text x="80" y="266" fill="#3E5C76" font-size="13.5">How often a deploy causes a problem.</text>
+  <text x="80" y="310" fill="#3C6E63" font-size="13" font-weight="600">Elite target: around 5%</text>
+
+  <!-- Card: Recovery time -->
+  <rect x="430" y="200" width="355" height="140" rx="12" fill="#E3EDEA" stroke="#3C6E63" stroke-width="1.5"/>
+  <text x="455" y="238" fill="#1C2B3A" font-size="18" font-weight="600">Failed deployment recovery</text>
+  <text x="455" y="266" fill="#3E5C76" font-size="13.5">How fast you recover when it breaks.</text>
+  <text x="455" y="310" fill="#3C6E63" font-size="13" font-weight="600">Elite target: under an hour</text>
+
+  <!-- caption -->
+  <text x="420" y="368" text-anchor="middle" fill="#8896A3" font-size="11.5">The four keys are read together: speed on top, stability below, so one is never won by sacrificing the other.</text>
+</svg>

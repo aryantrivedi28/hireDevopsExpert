@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" font-family="'IBM Plex Sans', Arial, sans-serif">
+  <defs>
+    <marker id="arw" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#8896A3"/>
+    </marker>
+    <marker id="arwT" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#3C6E63"/>
+    </marker>
+  </defs>
+
+  <!-- group brackets -->
+  <text x="410" y="30" text-anchor="middle" fill="#3C6E63" font-size="13" font-weight="600" letter-spacing="2">DEV &#8594; OPS &#8594; DEV  (one continuous loop, one team)</text>
+
+  <!-- Row 1 : Dev -->
+  <g>
+    <!-- Plan -->
+    <rect x="55" y="70" width="150" height="60" rx="12" fill="#EEF2F5" stroke="#3E5C76" stroke-width="1.5"/>
+    <text x="130" y="97" text-anchor="middle" fill="#8896A3" font-size="11">01</text>
+    <text x="130" y="114" text-anchor="middle" fill="#1C2B3A" font-size="16" font-weight="600">Plan</text>
+    <!-- Code -->
+    <rect x="245" y="70" width="150" height="60" rx="12" fill="#EEF2F5" stroke="#3E5C76" stroke-width="1.5"/>
+    <text x="320" y="97" text-anchor="middle" fill="#8896A3" font-size="11">02</text>
+    <text x="320" y="114" text-anchor="middle" fill="#1C2B3A" font-size="16" font-weight="600">Code</text>
+    <!-- Build -->
+    <rect x="435" y="70" width="150" height="60" rx="12" fill="#EEF2F5" stroke="#3E5C76" stroke-width="1.5"/>
+    <text x="510" y="97" text-anchor="middle" fill="#8896A3" font-size="11">03</text>
+    <text x="510" y="114" text-anchor="middle" fill="#1C2B3A" font-size="16" font-weight="600">Build</text>
+    <!-- Test -->
+    <rect x="625" y="70" width="150" height="60" rx="12" fill="#EEF2F5" stroke="#3E5C76" stroke-width="1.5"/>
+    <text x="700" y="97" text-anchor="middle" fill="#8896A3" font-size="11">04</text>
+    <text x="700" y="114" text-anchor="middle" fill="#1C2B3A" font-size="16" font-weight="600">Test</text>
+  </g>
+
+  <!-- Row 2 : Ops -->
+  <g>
+    <!-- Monitor (bottom-left) -->
+    <rect x="55" y="270" width="150" height="60" rx="12" fill="#E3EDEA" stroke="#3C6E63" stroke-width="1.5"/>
+    <text x="130" y="297" text-anchor="middle" fill="#8896A3" font-size="11">08</text>
+    <text x="130" y="314" text-anchor="middle" fill="#1C2B3A" font-size="16" font-weight="600">Monitor</text>
+    <!-- Operate -->
+    <rect x="245" y="270" width="150" height="60" rx="12" fill="#E3EDEA" stroke="#3C6E63" stroke-width="1.5"/>
+    <text x="320" y="297" text-anchor="middle" fill="#8896A3" font-size="11">07</text>
+    <text x="320" y="314" text-anchor="middle" fill="#1C2B3A" font-size="16" font-weight="600">Operate</text>
+    <!-- Deploy -->
+    <rect x="435" y="270" width="150" height="60" rx="12" fill="#E3EDEA" stroke="#3C6E63" stroke-width="1.5"/>
+    <text x="510" y="297" text-anchor="middle" fill="#8896A3" font-size="11">06</text>
+    <text x="510" y="314" text-anchor="middle" fill="#1C2B3A" font-size="16" font-weight="600">Deploy</text>
+    <!-- Release -->
+    <rect x="625" y="270" width="150" height="60" rx="12" fill="#E3EDEA" stroke="#3C6E63" stroke-width="1.5"/>
+    <text x="700" y="297" text-anchor="middle" fill="#8896A3" font-size="11">05</text>
+    <text x="700" y="314" text-anchor="middle" fill="#1C2B3A" font-size="16" font-weight="600">Release</text>
+  </g>
+
+  <!-- Row 1 arrows (left to right) -->
+  <line x1="205" y1="100" x2="243" y2="100" stroke="#8896A3" stroke-width="1.8" marker-end="url(#arw)"/>
+  <line x1="395" y1="100" x2="433" y2="100" stroke="#8896A3" stroke-width="1.8" marker-end="url(#arw)"/>
+  <line x1="585" y1="100" x2="623" y2="100" stroke="#8896A3" stroke-width="1.8" marker-end="url(#arw)"/>
+  <!-- Test down to Release -->
+  <path d="M700,130 L700,268" fill="none" stroke="#8896A3" stroke-width="1.8" marker-end="url(#arw)"/>
+
+  <!-- Row 2 arrows (right to left) -->
+  <line x1="625" y1="300" x2="587" y2="300" stroke="#8896A3" stroke-width="1.8" marker-end="url(#arw)"/>
+  <line x1="435" y1="300" x2="397" y2="300" stroke="#8896A3" stroke-width="1.8" marker-end="url(#arw)"/>
+  <line x1="245" y1="300" x2="207" y2="300" stroke="#8896A3" stroke-width="1.8" marker-end="url(#arw)"/>
+  <!-- Monitor loops back up to Plan (the continuous loop) -->
+  <path d="M55,300 L28,300 Q14,300 14,286 L14,114 Q14,100 28,100 L53,100" fill="none" stroke="#3C6E63" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arwT)"/>
+  <text x="20" y="205" text-anchor="middle" fill="#3C6E63" font-size="11" font-weight="500" transform="rotate(-90 20 205)">feedback loop</text>
+
+  <!-- side labels -->
+  <text x="792" y="104" fill="#3E5C76" font-size="11" font-weight="600" letter-spacing="1">DEV</text>
+  <text x="792" y="304" fill="#3C6E63" font-size="11" font-weight="600" letter-spacing="1">OPS</text>
+</svg>

@@ -10,7 +10,6 @@ import {
   Calendar, 
   Clock, 
   User, 
-  Share2,
   Mail,
   ChevronRight,
   BookOpen,
@@ -103,28 +102,28 @@ const DORA_TIERS = [
     frequency: "On demand (many times a day)",
     leadTime: "Less than a day",
     recovery: "Less than an hour",
-    color: "bg-emerald-500/10 text-emerald-700"
+    color: "bg-emerald-500/10 text-emerald-700 border-emerald-200"
   },
   {
     tier: "High",
     frequency: "Once a day to once a week",
     leadTime: "One day to one week",
     recovery: "Less than a day",
-    color: "bg-blue-500/10 text-blue-700"
+    color: "bg-blue-500/10 text-blue-700 border-blue-200"
   },
   {
     tier: "Medium",
     frequency: "Once a week to once a month",
     leadTime: "One week to one month",
     recovery: "Less than a day",
-    color: "bg-amber-500/10 text-amber-700"
+    color: "bg-amber-500/10 text-amber-700 border-amber-200"
   },
   {
     tier: "Low",
     frequency: "Less than once a month",
     leadTime: "More than a month",
     recovery: "Over a week",
-    color: "bg-red-500/10 text-red-700"
+    color: "bg-red-500/10 text-red-700 border-red-200"
   }
 ];
 
@@ -197,7 +196,7 @@ const PLATFORM_ENGINEERING_DATA = [
 export default function WhatIsDevOpsPage() {
   return (
     <main className="min-h-screen bg-off">
-      {/* Hero Section - Enhanced */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden bg-ink py-16 md:py-24 lg:py-32">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-teal-deep/30 blur-3xl" />
@@ -207,7 +206,6 @@ export default function WhatIsDevOpsPage() {
         <div className="relative mx-auto max-w-[1120px] px-4 md:px-6">
           <div className="flex flex-col items-start gap-8 lg:flex-row lg:gap-16">
             <div className="flex-1 max-w-[68ch]">
-              {/* Breadcrumb */}
               <nav className="flex items-center gap-2 text-sm text-gray/70" aria-label="Breadcrumb">
                 <Link href="/" className="hover:text-teal transition-colors">Home</Link>
                 <ChevronRight className="h-4 w-4" />
@@ -216,19 +214,16 @@ export default function WhatIsDevOpsPage() {
                 <span className="text-white">What Is DevOps?</span>
               </nav>
 
-              {/* Category */}
               <div className="mt-6">
                 <span className="inline-block rounded-full bg-teal-deep/20 px-4 py-1.5 text-xs font-medium text-teal">
                   DevOps Fundamentals
                 </span>
               </div>
 
-              {/* Title */}
               <h1 className="mt-4 text-3xl font-semibold leading-[1.15] text-white md:text-4xl lg:text-5xl">
                 What Is DevOps? A Practical Guide for Startups & SaaS Teams
               </h1>
 
-              {/* Meta info */}
               <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-gray">
                 <div className="flex items-center gap-2">
                   <User className="h-4 w-4 text-teal" />
@@ -244,7 +239,6 @@ export default function WhatIsDevOpsPage() {
                 </div>
               </div>
 
-              {/* Share buttons */}
               <div className="mt-6 flex items-center gap-2">
                 <span className="text-sm text-gray">Share:</span>
                 <div className="flex gap-1">
@@ -271,7 +265,6 @@ export default function WhatIsDevOpsPage() {
               </div>
             </div>
 
-            {/* Hero Decorative Element */}
             <div className="hidden lg:block lg:w-64">
               <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
                 <div className="flex items-center gap-3">
@@ -298,7 +291,7 @@ export default function WhatIsDevOpsPage() {
         </div>
       </section>
 
-      {/* Table of Contents - Enhanced */}
+      {/* Table of Contents */}
       <Section className="border-b border-mist bg-white py-8">
         <Container>
           <div className="mx-auto max-w-[68ch]">
@@ -330,7 +323,7 @@ export default function WhatIsDevOpsPage() {
         <Container>
           <div className="mx-auto max-w-[68ch]">
             <div className="prose prose-lg max-w-none prose-headings:text-ink prose-p:text-slate prose-strong:text-ink prose-a:text-teal-deep prose-a:no-underline hover:prose-a:underline">
-              {/* Introduction with highlight */}
+              {/* Introduction */}
               <div className="rounded-xl border-l-4 border-teal-deep bg-mist/50 p-6 mb-8">
                 <p className="text-lg leading-relaxed text-ink">
                   DevOps is a way of building and running software where the people who write the code and the people who operate it work as one team, using automation to release small changes often and safely. It's less a tool than a shift in how a team works.
@@ -377,7 +370,7 @@ export default function WhatIsDevOpsPage() {
                 </li>
               </ul>
 
-              {/* Section 3: How DevOps works */}
+              {/* Section 3: How DevOps works - WITH DEVOPS LIFECYCLE SVG */}
               <h2 id="how-devops-works" className="mt-12 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">03</span>
                 How DevOps works: the lifecycle
@@ -385,6 +378,22 @@ export default function WhatIsDevOpsPage() {
               <p>
                 Because the work never really "finishes" (you build, run, learn, and improve continuously), the DevOps lifecycle is usually drawn as an infinity loop with eight phases:
               </p>
+
+              {/* DevOps Lifecycle SVG Image */}
+              <div className="my-8 overflow-hidden rounded-xl border border-mist bg-white p-4 shadow-sm md:p-6">
+                <div className="relative aspect-[16/9] w-full">
+                  <Image
+                    src="/devops-lifecycle.svg"
+                    alt="DevOps lifecycle diagram showing eight phases in a continuous loop: plan, code, build, test on the Dev side, then release, deploy, operate and monitor on the Ops side, with a feedback loop running back to plan."
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                <p className="mt-3 text-center text-xs text-slate/70">
+                  The DevOps lifecycle: one continuous loop, one team
+                </p>
+              </div>
 
               {/* Lifecycle Cards */}
               <div className="my-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -484,16 +493,34 @@ export default function WhatIsDevOpsPage() {
                 })}
               </div>
 
-              {/* Section 7: DORA Metrics */}
+              {/* Section 7: DORA Metrics - WITH DORA FOUR METRICS SVG */}
               <h2 id="dora-metrics" className="mt-12 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">07</span>
                 How you know it's working: DORA metrics
               </h2>
+              <p>
+                "We feel faster" isn't evidence. The most widely used way to measure DevOps performance is the set of metrics from <strong>DORA</strong> (DevOps Research and Assessment), drawn from the <em>Accelerate</em> research. There are four classic keys, and they're deliberately balanced so you can't win one by sacrificing another:
+              </p>
+
+              {/* DORA Four Metrics SVG Image */}
+              <div className="my-8 overflow-hidden rounded-xl border border-mist bg-white p-4 shadow-sm md:p-6">
+                <div className="relative aspect-[16/9] w-full">
+                  <Image
+                    src="/dora-four-metrics.svg"
+                    alt="The four DORA metrics shown as two throughput measures, deployment frequency and lead time for changes, and two stability measures, change failure rate and failed deployment recovery time, each with its elite target."
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <p className="mt-3 text-center text-xs text-slate/70">
+                  The four keys are read together: speed on top, stability below
+                </p>
+              </div>
 
               {/* DORA Cards */}
               <div className="my-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {DORA_TIERS.map((tier) => (
-                  <div key={tier.tier} className={`rounded-lg border border-mist p-4 ${tier.color}`}>
+                  <div key={tier.tier} className={`rounded-lg border p-4 ${tier.color}`}>
                     <p className="text-sm font-semibold">{tier.tier}</p>
                     <p className="mt-1 text-xs">📊 {tier.frequency}</p>
                     <p className="text-xs">⏱️ {tier.leadTime}</p>
@@ -575,7 +602,7 @@ export default function WhatIsDevOpsPage() {
         </Container>
       </Section>
 
-      {/* FAQ Section - Enhanced */}
+      {/* FAQ Section */}
       <Section className="border-y border-mist bg-white py-12 md:py-16">
         <Container>
           <div className="mx-auto max-w-[68ch]">
@@ -676,7 +703,7 @@ export default function WhatIsDevOpsPage() {
         </Container>
       </Section>
 
-      {/* CTA Section - Enhanced */}
+      {/* CTA Section */}
       <section className="relative overflow-hidden bg-ink py-16 md:py-20">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-teal-deep/30 blur-3xl" />
