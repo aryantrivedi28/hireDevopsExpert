@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "What Is DevOps? A Practical Guide for Startups & SaaS Teams",
     description: "DevOps done right means shipping faster without breaking production. Here's what DevOps actually is, how it works, and when your startup or SaaS team really needs it.",
-    url: "https://hiredevopsexpert.com/blog/what-is-devops",
+    url: "https://www.hiredevopsexpert.com/blog/what-is-devops",
     type: "article",
     publishedTime: "2024-01-15",
     authors: ["Hire DevOps Expert Team"],
@@ -242,9 +242,9 @@ export default function WhatIsDevOpsPage() {
                 <span className="text-sm text-gray">Share:</span>
                 <div className="flex gap-1">
                   {[
-                    { icon: FaTwitter, href: "https://twitter.com/intent/tweet?text=What%20Is%20DevOps%3F%20A%20Practical%20Guide%20for%20Startups%20%26%20SaaS%20Teams&url=https://hiredevopsexpert.com/blog/what-is-devops", color: "hover:text-[#1DA1F2]" },
-                    { icon: FaLinkedin, href: "https://www.linkedin.com/sharing/share-offsite/?url=https://hiredevopsexpert.com/blog/what-is-devops", color: "hover:text-[#0A66C2]" },
-                    { icon: Mail, href: "mailto:?subject=What%20Is%20DevOps%3F%20A%20Practical%20Guide%20for%20Startups%20%26%20SaaS%20Teams&body=Check%20out%20this%20article%3A%20https%3A%2F%2Fhiredevopsexpert.com%2Fblog%2Fwhat-is-devops", color: "hover:text-teal" }
+                    { icon: FaTwitter, href: "https://twitter.com/intent/tweet?text=What%20Is%20DevOps%3F%20A%20Practical%20Guide%20for%20Startups%20%26%20SaaS%20Teams&url=https://www.hiredevopsexpert.com/blog/what-is-devops", color: "hover:text-[#1DA1F2]" },
+                    { icon: FaLinkedin, href: "https://www.linkedin.com/sharing/share-offsite/?url=https://www.hiredevopsexpert.com/blog/what-is-devops", color: "hover:text-[#0A66C2]" },
+                    { icon: Mail, href: "mailto:?subject=What%20Is%20DevOps%3F%20A%20Practical%20Guide%20for%20Startups%20%26%20SaaS%20Teams&body=Check%20out%20this%20article%3A%20https%3A%2F%2Fwww.hiredevopsexpert.com%2Fblog%2Fwhat-is-devops", color: "hover:text-teal" }
                   ].map((social) => {
                     const Icon = social.icon;
                     return (
@@ -759,12 +759,12 @@ export default function WhatIsDevOpsPage() {
               "name": "Hire DevOps Expert",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://hiredevopsexpert.com/footerLogo.png"
+                "url": "https://www.hiredevopsexpert.com/footerLogo.png"
               }
             },
             "datePublished": "2024-01-15",
             "dateModified": "2024-01-15",
-            "mainEntityOfPage": "https://hiredevopsexpert.com/blog/what-is-devops"
+            "mainEntityOfPage": "https://www.hiredevopsexpert.com/blog/what-is-devops"
           })
         }}
       />
@@ -794,9 +794,9 @@ export default function WhatIsDevOpsPage() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://hiredevopsexpert.com/" },
-              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://hiredevopsexpert.com/blog/" },
-              { "@type": "ListItem", "position": 3, "name": "What Is DevOps?", "item": "https://hiredevopsexpert.com/blog/what-is-devops/" }
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.hiredevopsexpert.com" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.hiredevopsexpert.com/blog" },
+              { "@type": "ListItem", "position": 3, "name": "What Is DevOps?", "item": "https://www.hiredevopsexpert.com/blog/what-is-devops" }
             ]
           })
         }}
