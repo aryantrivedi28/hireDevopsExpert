@@ -23,7 +23,6 @@ import {
   Layers,
   BarChart,
   TrendingUp,
-  Award,
   Target,
   User2,
   Rocket
@@ -322,281 +321,281 @@ export default function WhatIsDevOpsPage() {
       <Section className="py-8 md:py-12">
         <Container>
           <div className="mx-auto max-w-[68ch]">
-            <div className="prose prose-lg max-w-none prose-headings:text-ink prose-p:text-slate prose-strong:text-ink prose-a:text-teal-deep prose-a:no-underline hover:prose-a:underline">
-              {/* Introduction */}
-              <div className="rounded-xl border-l-4 border-teal-deep bg-mist/50 p-6 mb-8">
-                <p className="text-lg leading-relaxed text-ink">
-                  DevOps is a way of building and running software where the people who write the code and the people who operate it work as one team, using automation to release small changes often and safely. It's less a tool than a shift in how a team works.
-                </p>
-                <p className="mt-3 text-lg font-medium text-teal-deep">
-                  The goal is simple: ship faster without breaking production.
-                </p>
+            {/* Introduction */}
+            <div className="rounded-xl border-l-4 border-teal-deep bg-mist/50 p-4 md:p-6 mb-8">
+              <p className="text-base md:text-lg leading-relaxed text-ink">
+                DevOps is a way of building and running software where the people who write the code and the people who operate it work as one team, using automation to release small changes often and safely. It's less a tool than a shift in how a team works.
+              </p>
+              <p className="mt-3 text-base md:text-lg font-medium text-teal-deep">
+                The goal is simple: ship faster without breaking production.
+              </p>
+            </div>
+
+            {/* Section 1 */}
+            <h2 id="the-5pm-friday-problem" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-ink mt-10 md:mt-12 mb-4 scroll-mt-20">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">01</span>
+              The 5pm Friday problem
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              Picture a small SaaS team on a Friday afternoon. A change is ready, it's been sitting for a week, and someone finally deploys it. The site goes down. Nobody's quite sure why, the person who wrote the change has left for the weekend, and there's no quick way to undo it. Everyone stays late.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              If that feels familiar, you've met the problem DevOps was invented to solve. For years, the people who <em>built</em> software and the people who <em>ran</em> it sat in separate teams with separate incentives. Developers were rewarded for shipping features; operations was rewarded for keeping things stable. So developers threw finished code "over the wall" to operations, who then had to run something they hadn't seen before. Releases became big, rare, and terrifying, which made them riskier, which made teams release even less often. A vicious circle.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              DevOps breaks that circle by putting both sides on the same team, with shared ownership of the whole journey from idea to production and beyond.
+            </p>
+
+            {/* Section 2 */}
+            <h2 id="what-devops-actually-means" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-ink mt-10 md:mt-12 mb-4 scroll-mt-20">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">02</span>
+              What DevOps actually means
+            </h2>
+            <div className="rounded-xl bg-ink p-4 md:p-8 text-center my-6">
+              <p className="text-base md:text-lg font-medium leading-relaxed text-white">
+                DevOps is a culture of shared ownership, supported by automation, that lets a team release small changes continuously and recover quickly when something breaks.
+              </p>
+            </div>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              Two things in that sentence do the heavy lifting:
+            </p>
+            <ul className="list-none p-0 my-4 space-y-3">
+              <li className="relative pl-6 text-base md:text-lg leading-relaxed text-slate">
+                <span className="absolute left-0 text-teal-deep font-bold">•</span>
+                <strong className="text-ink font-semibold">Culture.</strong> DevOps is first a way of working: collaboration, shared responsibility, and learning from failure instead of hunting for someone to blame. You can buy every tool on the market and still not have DevOps if the team dynamics don't change.
+              </li>
+              <li className="relative pl-6 text-base md:text-lg leading-relaxed text-slate">
+                <span className="absolute left-0 text-teal-deep font-bold">•</span>
+                <strong className="text-ink font-semibold">Automation.</strong> The culture is made practical by automating the repetitive, error-prone steps—building, testing, and deploying code—so releases stop depending on one person remembering the right sequence at 5pm on a Friday.
+              </li>
+            </ul>
+
+            {/* Section 3 */}
+            <h2 id="how-devops-works" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-ink mt-10 md:mt-12 mb-4 scroll-mt-20">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">03</span>
+              How DevOps works: the lifecycle
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              Because the work never really "finishes" (you build, run, learn, and improve continuously), the DevOps lifecycle is usually drawn as an infinity loop with eight phases:
+            </p>
+
+            {/* DevOps Lifecycle SVG */}
+            <div className="my-6 md:my-8 overflow-hidden rounded-xl border border-mist bg-white p-3 md:p-6 shadow-sm">
+              <div className="relative aspect-[16/9] w-full">
+                <Image
+                  src="/devops-lifecycle.svg"
+                  alt="DevOps lifecycle diagram showing eight phases in a continuous loop: plan, code, build, test on the Dev side, then release, deploy, operate and monitor on the Ops side, with a feedback loop running back to plan."
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
-
-              {/* Section 1: The 5pm Friday problem */}
-              <h2 id="the-5pm-friday-problem" className="mt-12 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">01</span>
-                The 5pm Friday problem
-              </h2>
-              <p>
-                Picture a small SaaS team on a Friday afternoon. A change is ready, it's been sitting for a week, and someone finally deploys it. The site goes down. Nobody's quite sure why, the person who wrote the change has left for the weekend, and there's no quick way to undo it. Everyone stays late.
+              <p className="mt-3 text-center text-xs text-slate/70">
+                The DevOps lifecycle: one continuous loop, one team
               </p>
-              <p>
-                If that feels familiar, you've met the problem DevOps was invented to solve. For years, the people who <em>built</em> software and the people who <em>ran</em> it sat in separate teams with separate incentives. Developers were rewarded for shipping features; operations was rewarded for keeping things stable. So developers threw finished code "over the wall" to operations, who then had to run something they hadn't seen before. Releases became big, rare, and terrifying, which made them riskier, which made teams release even less often. A vicious circle.
-              </p>
-              <p>
-                DevOps breaks that circle by putting both sides on the same team, with shared ownership of the whole journey from idea to production and beyond.
-              </p>
+            </div>
 
-              {/* Section 2: What DevOps actually means */}
-              <h2 id="what-devops-actually-means" className="mt-12 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">02</span>
-                What DevOps actually means
-              </h2>
-              <div className="rounded-xl bg-ink p-6 text-center text-white md:p-8">
-                <p className="text-lg font-medium leading-relaxed">
-                  DevOps is a culture of shared ownership, supported by automation, that lets a team release small changes continuously and recover quickly when something breaks.
-                </p>
-              </div>
-              <p className="mt-6">
-                Two things in that sentence do the heavy lifting:
-              </p>
-              <ul>
-                <li>
-                  <strong>Culture.</strong> DevOps is first a way of working: collaboration, shared responsibility, and learning from failure instead of hunting for someone to blame. You can buy every tool on the market and still not have DevOps if the team dynamics don't change.
-                </li>
-                <li>
-                  <strong>Automation.</strong> The culture is made practical by automating the repetitive, error-prone steps—building, testing, and deploying code—so releases stop depending on one person remembering the right sequence at 5pm on a Friday.
-                </li>
-              </ul>
-
-              {/* Section 3: How DevOps works - WITH DEVOPS LIFECYCLE SVG */}
-              <h2 id="how-devops-works" className="mt-12 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">03</span>
-                How DevOps works: the lifecycle
-              </h2>
-              <p>
-                Because the work never really "finishes" (you build, run, learn, and improve continuously), the DevOps lifecycle is usually drawn as an infinity loop with eight phases:
-              </p>
-
-              {/* DevOps Lifecycle SVG Image */}
-              <div className="my-8 overflow-hidden rounded-xl border border-mist bg-white p-4 shadow-sm md:p-6">
-                <div className="relative aspect-[16/9] w-full">
-                  <Image
-                    src="/devops-lifecycle.svg"
-                    alt="DevOps lifecycle diagram showing eight phases in a continuous loop: plan, code, build, test on the Dev side, then release, deploy, operate and monitor on the Ops side, with a feedback loop running back to plan."
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-                <p className="mt-3 text-center text-xs text-slate/70">
-                  The DevOps lifecycle: one continuous loop, one team
-                </p>
-              </div>
-
-              {/* Lifecycle Cards */}
-              <div className="my-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {LIFECYCLE_PHASES.map((phase, index) => {
-                  const Icon = phase.icon;
-                  return (
-                    <div key={phase.phase} className="group rounded-lg border border-mist bg-white p-4 transition-shadow hover:shadow-md">
-                      <div className="flex items-start gap-3">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal-deep/10 text-teal-deep transition-colors group-hover:bg-teal-deep group-hover:text-white">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium text-teal-deep">Phase {index + 1}</span>
-                            <span className="font-semibold text-ink">{phase.phase}</span>
-                          </div>
-                          <p className="mt-0.5 text-sm text-slate">{phase.description}</p>
-                          <p className="mt-1 text-xs text-gray">Tools: {phase.tools}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Section 4: Core practices */}
-              <h2 id="core-practices" className="mt-12 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">04</span>
-                The core practices that make it real
-              </h2>
-              <p>
-                A handful of practices turn that loop from a diagram into something that runs:
-              </p>
-
-              <div className="my-8 space-y-4">
-                {CORE_PRACTICES.map((practice) => {
-                  const Icon = practice.icon;
-                  return (
-                    <div key={practice.title} className="group rounded-xl border border-mist bg-white p-6 transition-shadow hover:shadow-md">
-                      <div className="flex items-start gap-4">
-                        <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${practice.color} text-white`}>
-                          <Icon className="h-6 w-6" />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex flex-wrap items-center justify-between gap-2">
-                            <h3 className="text-lg font-semibold text-ink">{practice.title}</h3>
-                            <Link href={practice.href} className="text-sm text-teal-deep hover:underline">
-                              Learn more →
-                            </Link>
-                          </div>
-                          <p className="mt-1 text-sm text-slate">{practice.description}</p>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Section 5: DevOps is culture */}
-              <h2 id="devops-is-culture" className="mt-12 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">05</span>
-                DevOps is a culture, not a job title
-              </h2>
-              <div className="rounded-xl bg-mist p-6 md:p-8">
-                <p className="text-lg font-medium text-ink">CALMS: Culture, Automation, Lean, Measurement, Sharing</p>
-                <p className="mt-2 text-sm text-slate">
-                  Teams talk to each other instead of filing tickets across a wall; work happens in small batches so problems are small too; decisions are backed by measurement rather than opinion; and when something breaks, the team runs a blameless post-mortem to fix the <em>system</em>, not to punish the person.
-                </p>
-              </div>
-              <p className="mt-6">
-                This is also why "hiring a DevOps engineer" and "doing DevOps" aren't the same thing. A good <a href="/hire-devops-engineer">DevOps engineer</a> builds the pipelines and infrastructure that make the culture possible, but the culture still has to be adopted by the whole team.
-              </p>
-
-              {/* Section 6: Why DevOps matters */}
-              <h2 id="why-devops-matters" className="mt-12 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">06</span>
-                Why DevOps matters for startups and SaaS teams
-              </h2>
-              <p>
-                For an early-stage or scaling company, the benefits are less abstract than the textbooks make them sound:
-              </p>
-
-              <div className="my-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {BENEFITS.map((benefit) => {
-                  const Icon = benefit.icon;
-                  return (
-                    <div key={benefit.title} className="flex items-start gap-3 rounded-lg border border-mist bg-white p-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-teal-deep">
+            {/* Lifecycle Cards */}
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 my-6 md:my-8">
+              {LIFECYCLE_PHASES.map((phase, index) => {
+                const Icon = phase.icon;
+                return (
+                  <div key={phase.phase} className="group rounded-lg border border-mist bg-white p-4 transition-shadow hover:shadow-md">
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal-deep/10 text-teal-deep transition-colors group-hover:bg-teal-deep group-hover:text-white">
                         <Icon className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-medium text-ink">{benefit.title}</p>
-                        <p className="text-sm text-slate">{benefit.description}</p>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-medium text-teal-deep">Phase {index + 1}</span>
+                          <span className="font-semibold text-ink">{phase.phase}</span>
+                        </div>
+                        <p className="mt-0.5 text-sm text-slate">{phase.description}</p>
+                        <p className="mt-1 text-xs text-gray">Tools: {phase.tools}</p>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-
-              {/* Section 7: DORA Metrics - WITH DORA FOUR METRICS SVG */}
-              <h2 id="dora-metrics" className="mt-12 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">07</span>
-                How you know it's working: DORA metrics
-              </h2>
-              <p>
-                "We feel faster" isn't evidence. The most widely used way to measure DevOps performance is the set of metrics from <strong>DORA</strong> (DevOps Research and Assessment), drawn from the <em>Accelerate</em> research. There are four classic keys, and they're deliberately balanced so you can't win one by sacrificing another:
-              </p>
-
-              {/* DORA Four Metrics SVG Image */}
-              <div className="my-8 overflow-hidden rounded-xl border border-mist bg-white p-4 shadow-sm md:p-6">
-                <div className="relative aspect-[16/9] w-full">
-                  <Image
-                    src="/dora-four-metrics.svg"
-                    alt="The four DORA metrics shown as two throughput measures, deployment frequency and lead time for changes, and two stability measures, change failure rate and failed deployment recovery time, each with its elite target."
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-                <p className="mt-3 text-center text-xs text-slate/70">
-                  The four keys are read together: speed on top, stability below
-                </p>
-              </div>
-
-              {/* DORA Cards */}
-              <div className="my-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {DORA_TIERS.map((tier) => (
-                  <div key={tier.tier} className={`rounded-lg border p-4 ${tier.color}`}>
-                    <p className="text-sm font-semibold">{tier.tier}</p>
-                    <p className="mt-1 text-xs">📊 {tier.frequency}</p>
-                    <p className="text-xs">⏱️ {tier.leadTime}</p>
-                    <p className="text-xs">🔄 {tier.recovery}</p>
                   </div>
-                ))}
-              </div>
-              <p className="text-sm text-slate/70">
-                *Approximate tiers from the 2024 DORA / Accelerate State of DevOps Report. Elite teams maintain change failure rates around 5%.
-              </p>
+                );
+              })}
+            </div>
 
-              {/* Section 8: Where DevOps is heading */}
-              <h2 id="where-devops-is-heading" className="mt-12 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">08</span>
-                Where DevOps is heading in 2026
-              </h2>
+            {/* Section 4 */}
+            <h2 id="core-practices" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-ink mt-10 md:mt-12 mb-4 scroll-mt-20">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">04</span>
+              The core practices that make it real
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              A handful of practices turn that loop from a diagram into something that runs:
+            </p>
 
-              <div className="my-8 rounded-xl border border-mist bg-white p-6">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div>
-                    <h4 className="font-semibold text-ink">Platform Engineering</h4>
-                    <p className="mt-2 text-sm text-slate">
-                      As teams grow, "you build it, you run it" starts to overload developers with infrastructure work. Platform engineering builds an internal, self-service platform so product engineers can ship without becoming cloud experts.
-                    </p>
-                    <div className="mt-4 space-y-2">
-                      {PLATFORM_ENGINEERING_DATA.map((item) => (
-                        <div key={item.year} className="flex items-center justify-between border-b border-mist pb-2">
-                          <span className="text-sm text-slate">{item.year}</span>
-                          <span className="text-sm font-medium text-ink">{item.percentage}</span>
+            <div className="space-y-4 my-6 md:my-8">
+              {CORE_PRACTICES.map((practice) => {
+                const Icon = practice.icon;
+                return (
+                  <div key={practice.title} className="group rounded-xl border border-mist bg-white p-4 md:p-6 transition-shadow hover:shadow-md">
+                    <div className="flex items-start gap-3 md:gap-4">
+                      <div className={`flex h-10 w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${practice.color} text-white`}>
+                        <Icon className="h-5 w-5 md:h-6 md:w-6" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <h3 className="text-base md:text-lg font-semibold text-ink">{practice.title}</h3>
+                          <Link href={practice.href} className="text-sm text-teal-deep hover:underline whitespace-nowrap">
+                            Learn more →
+                          </Link>
                         </div>
-                      ))}
+                        <p className="mt-1 text-sm text-slate">{practice.description}</p>
+                      </div>
                     </div>
-                    <p className="mt-2 text-xs text-slate/70">*Source: Gartner, 2025-2026 projections</p>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-ink">AI in the Pipeline</h4>
-                    <p className="mt-2 text-sm text-slate">
-                      AI is moving into CI/CD—summarising failed builds, suggesting fixes, flagging risky changes. The sensible pattern is AI <em>assisting</em> engineers, not making the final call.
-                    </p>
-                    <div className="mt-4 rounded-lg bg-mist p-4">
-                      <p className="text-sm text-slate">
-                        <span className="font-medium text-ink">GitOps:</span> Using Git as the single source of truth for your infrastructure. Small changes, automated, observable, reversible.
-                      </p>
+                );
+              })}
+            </div>
+
+            {/* Section 5 */}
+            <h2 id="devops-is-culture" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-ink mt-10 md:mt-12 mb-4 scroll-mt-20">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">05</span>
+              DevOps is a culture, not a job title
+            </h2>
+            <div className="rounded-xl bg-mist p-4 md:p-8 my-6">
+              <p className="text-base md:text-lg font-medium text-ink">CALMS: Culture, Automation, Lean, Measurement, Sharing</p>
+              <p className="mt-2 text-sm md:text-base text-slate">
+                Teams talk to each other instead of filing tickets across a wall; work happens in small batches so problems are small too; decisions are backed by measurement rather than opinion; and when something breaks, the team runs a blameless post-mortem to fix the <em>system</em>, not to punish the person.
+              </p>
+            </div>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              This is also why "hiring a DevOps engineer" and "doing DevOps" aren't the same thing. A good <a href="/hire-devops-engineer" className="text-teal-deep hover:underline">DevOps engineer</a> builds the pipelines and infrastructure that make the culture possible, but the culture still has to be adopted by the whole team.
+            </p>
+
+            {/* Section 6 */}
+            <h2 id="why-devops-matters" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-ink mt-10 md:mt-12 mb-4 scroll-mt-20">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">06</span>
+              Why DevOps matters for startups and SaaS teams
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              For an early-stage or scaling company, the benefits are less abstract than the textbooks make them sound:
+            </p>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 my-6 md:my-8">
+              {BENEFITS.map((benefit) => {
+                const Icon = benefit.icon;
+                return (
+                  <div key={benefit.title} className="flex items-start gap-3 rounded-lg border border-mist bg-white p-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-teal-deep">
+                      <Icon className="h-5 w-5" />
                     </div>
+                    <div>
+                      <p className="font-medium text-ink">{benefit.title}</p>
+                      <p className="text-sm text-slate">{benefit.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Section 7 */}
+            <h2 id="dora-metrics" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-ink mt-10 md:mt-12 mb-4 scroll-mt-20">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">07</span>
+              How you know it's working: DORA metrics
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              "We feel faster" isn't evidence. The most widely used way to measure DevOps performance is the set of metrics from <strong>DORA</strong> (DevOps Research and Assessment), drawn from the <em>Accelerate</em> research. There are four classic keys, and they're deliberately balanced so you can't win one by sacrificing another:
+            </p>
+
+            {/* DORA SVG */}
+            <div className="my-6 md:my-8 overflow-hidden rounded-xl border border-mist bg-white p-3 md:p-6 shadow-sm">
+              <div className="relative aspect-[16/9] w-full">
+                <Image
+                  src="/dora-four-metrics.svg"
+                  alt="The four DORA metrics shown as two throughput measures, deployment frequency and lead time for changes, and two stability measures, change failure rate and failed deployment recovery time, each with its elite target."
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <p className="mt-3 text-center text-xs text-slate/70">
+                The four keys are read together: speed on top, stability below
+              </p>
+            </div>
+
+            {/* DORA Cards */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4 my-6 md:my-8">
+              {DORA_TIERS.map((tier) => (
+                <div key={tier.tier} className={`rounded-lg border p-3 md:p-4 ${tier.color}`}>
+                  <p className="text-sm font-semibold">{tier.tier}</p>
+                  <p className="mt-1 text-xs">{tier.frequency}</p>
+                  <p className="text-xs">⏱️ {tier.leadTime}</p>
+                  <p className="text-xs">🔄 {tier.recovery}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm text-slate/70">
+              *Approximate tiers from the 2024 DORA / Accelerate State of DevOps Report. Elite teams maintain change failure rates around 5%.
+            </p>
+
+            {/* Section 8 */}
+            <h2 id="where-devops-is-heading" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-ink mt-10 md:mt-12 mb-4 scroll-mt-20">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">08</span>
+              Where DevOps is heading in 2026
+            </h2>
+
+            <div className="rounded-xl border border-mist bg-white p-4 md:p-6 my-6 md:my-8">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <h4 className="font-semibold text-ink">Platform Engineering</h4>
+                  <p className="mt-2 text-sm text-slate">
+                    As teams grow, "you build it, you run it" starts to overload developers with infrastructure work. Platform engineering builds an internal, self-service platform so product engineers can ship without becoming cloud experts.
+                  </p>
+                  <div className="mt-4 space-y-2">
+                    {PLATFORM_ENGINEERING_DATA.map((item) => (
+                      <div key={item.year} className="flex items-center justify-between border-b border-mist pb-2">
+                        <span className="text-sm text-slate">{item.year}</span>
+                        <span className="text-sm font-medium text-ink">{item.percentage}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-2 text-xs text-slate/70">*Source: Gartner, 2025-2026 projections</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-ink">AI in the Pipeline</h4>
+                  <p className="mt-2 text-sm text-slate">
+                    AI is moving into CI/CD—summarising failed builds, suggesting fixes, flagging risky changes. The sensible pattern is AI <em>assisting</em> engineers, not making the final call.
+                  </p>
+                  <div className="mt-4 rounded-lg bg-mist p-4">
+                    <p className="text-sm text-slate">
+                      <span className="font-medium text-ink">GitOps:</span> Using Git as the single source of truth for your infrastructure. Small changes, automated, observable, reversible.
+                    </p>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Section 9: Do you need DevOps */}
-              <h2 id="do-you-need-devops" className="mt-12 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">09</span>
-                Do you actually need DevOps yet?
-              </h2>
-              <div className="rounded-xl border border-amber-200 bg-amber-50 p-6">
-                <p className="text-amber-800">
-                  <span className="font-semibold">The honest version:</span> Not every team needs the full machinery on day one.
-                </p>
-              </div>
-              <p className="mt-6">
-                If you're a solo founder with a prototype and no users, you don't need a DORA dashboard—you need to find product-market fit. What you <em>do</em> want early is the cheap, high-leverage basics: a simple automated deploy, version-controlled infrastructure, backups, and a bit of monitoring. That's often called <strong>minimum viable DevOps</strong>.
+            {/* Section 9 */}
+            <h2 id="do-you-need-devops" className="flex items-center gap-3 text-xl md:text-2xl font-bold text-ink mt-10 md:mt-12 mb-4 scroll-mt-20">
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-sm font-bold text-teal-deep">09</span>
+              Do you actually need DevOps yet?
+            </h2>
+            <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 md:p-6 my-6">
+              <p className="text-amber-800">
+                <span className="font-semibold">The honest version:</span> Not every team needs the full machinery on day one.
               </p>
-              <p>
-                You've probably outgrown "we'll deal with it later" when you notice the signs: deployments are manual and nerve-wracking, you've had avoidable downtime, cloud costs are creeping up with no clear owner, releases are slowing down as the team grows, or there's simply no one whose job it is to keep production healthy.
+            </div>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              If you're a solo founder with a prototype and no users, you don't need a DORA dashboard—you need to find product-market fit. What you <em>do</em> want early is the cheap, high-leverage basics: a simple automated deploy, version-controlled infrastructure, backups, and a bit of monitoring. That's often called <strong>minimum viable DevOps</strong>.
+            </p>
+            <p className="text-base md:text-lg leading-relaxed text-slate mb-4">
+              You've probably outgrown "we'll deal with it later" when you notice the signs: deployments are manual and nerve-wracking, you've had avoidable downtime, cloud costs are creeping up with no clear owner, releases are slowing down as the team grows, or there's simply no one whose job it is to keep production healthy.
+            </p>
+            <div className="rounded-xl border border-teal-deep/20 bg-teal-deep/5 p-4 md:p-6 text-center my-6">
+              <p className="text-base md:text-lg font-medium text-ink">
+                If a few of those hit home, the next step is a conversation, not a rebuild.
               </p>
-              <div className="mt-6 rounded-xl border border-teal-deep/20 bg-teal-deep/5 p-6 text-center">
-                <p className="text-lg font-medium text-ink">
-                  If a few of those hit home, the next step is a conversation, not a rebuild.
-                </p>
-                <Link
-                  href="/contact"
-                  className="mt-4 inline-flex items-center gap-2 rounded-lg bg-teal-deep px-6 py-3 font-medium text-white transition-colors hover:bg-teal-deep/90"
-                >
-                  Book a free technical call
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
+              <Link
+                href="/contact"
+                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-teal-deep px-6 py-3 font-medium text-white transition-colors hover:bg-teal-deep/90"
+              >
+                Book a free technical call
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </Container>
@@ -620,8 +619,8 @@ export default function WhatIsDevOpsPage() {
                   key={index}
                   className="group rounded-lg border border-mist bg-off transition-all hover:shadow-sm"
                 >
-                  <summary className="flex cursor-pointer items-center justify-between px-5 py-4 text-left font-medium text-ink transition-colors hover:text-teal-deep md:px-6">
-                    <span className="flex items-center gap-3">
+                  <summary className="flex cursor-pointer items-center justify-between px-4 py-3 md:px-6 md:py-4 text-left font-medium text-ink transition-colors hover:text-teal-deep">
+                    <span className="flex items-center gap-3 text-sm md:text-base">
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-deep/10 text-xs font-bold text-teal-deep">
                         {String(index + 1).padStart(2, '0')}
                       </span>
@@ -641,7 +640,7 @@ export default function WhatIsDevOpsPage() {
                       />
                     </svg>
                   </summary>
-                  <div className="px-5 pb-4 text-sm text-slate md:px-6 md:pb-4">
+                  <div className="px-4 pb-4 md:px-6 md:pb-4 text-sm text-slate">
                     {faq.answer}
                   </div>
                 </details>
@@ -652,7 +651,7 @@ export default function WhatIsDevOpsPage() {
       </Section>
 
       {/* Related Content */}
-      <Section className="border-b border-mist bg-mist/30 py-12">
+      <Section className="border-b border-mist bg-mist/30 py-12 md:py-16">
         <Container>
           <div className="text-center">
             <Eyebrow tone="teal-deep">Keep Reading</Eyebrow>
@@ -660,7 +659,7 @@ export default function WhatIsDevOpsPage() {
               More DevOps insights
             </h2>
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
             {[
               {
                 title: "How to Set Up CI/CD Pipeline for SaaS",
@@ -683,14 +682,14 @@ export default function WhatIsDevOpsPage() {
                 <Link
                   key={post.href}
                   href={post.href}
-                  className="group rounded-xl border border-mist bg-white p-6 transition-all hover:shadow-md hover:-translate-y-1"
+                  className="group rounded-xl border border-mist bg-white p-4 md:p-6 transition-all hover:shadow-md hover:-translate-y-1"
                 >
                   <div className="flex items-start gap-3">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal-deep/10 text-teal-deep">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-medium text-ink group-hover:text-teal-deep transition-colors">
+                      <h3 className="font-medium text-ink group-hover:text-teal-deep transition-colors text-sm md:text-base">
                         {post.title}
                       </h3>
                       <p className="mt-1 text-sm text-teal-deep">Read more →</p>
@@ -714,10 +713,10 @@ export default function WhatIsDevOpsPage() {
             <div className="inline-block rounded-full bg-teal-deep/20 px-4 py-1.5 text-sm font-medium text-teal">
               Get Expert Help
             </div>
-            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
+            <h2 className="mt-4 text-2xl md:text-3xl font-semibold">
               Need help implementing DevOps?
             </h2>
-            <p className="mt-4 text-lg text-gray">
+            <p className="mt-4 text-base md:text-lg text-gray">
               Book a free technical call and we'll tell you honestly what's worth doing now and what can wait.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
