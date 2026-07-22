@@ -12,12 +12,12 @@ export default function Hero() {
         <div>
           <Eyebrow tone="gray">Hire a DevOps Expert</Eyebrow>
           <h1 className="mt-4 text-display font-semibold text-off">
-            Hire a DevOps Expert, done-for-you by an dedicated team.
+            DevOps expertise, delivered by a dedicated team.
           </h1>
           <p className="mt-6 max-w-[46ch] text-body text-gray">
             Our dedicated DevOps team sets up, automates, and manages your
-            infrastructure, CI/CD, AWS/Azure/GCP, Kubernetes, and monitoring, as
-            an extension of your engineering team.
+            infrastructure, CI/CD, AWS/Azure/GCP, Kubernetes, and monitoring as
+            a seamless extension of your engineering team.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Button href="/contact/">Book a DevOps consultation</Button>
@@ -28,9 +28,9 @@ export default function Hero() {
           <p className="mt-4 text-small text-gray">
             Looking for one person on your team?{" "}
             <Link href="/hire-devops-engineer/" className="font-medium text-off underline">
-              hire DevOps engineer
+              Hire a DevOps engineer
             </Link>{" "}
-            support instead.
+            instead.
           </p>
         </div>
         <PipelineMotif />
