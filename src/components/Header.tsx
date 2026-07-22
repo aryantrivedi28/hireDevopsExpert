@@ -5,12 +5,28 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Button from "@/components/Button";
+import { ChevronDown, BookOpen, Briefcase } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "How We Work", href: "/how-we-work" },
   { label: "Process", href: "/process" },
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
+];
+
+// Resources dropdown items
+const RESOURCES_ITEMS = [
+  { 
+    label: "Blog", 
+    href: "/blog", 
+    icon: BookOpen,
+    description: "DevOps insights & best practices"
+  },
+  { 
+    label: "Case Studies", 
+    href: "/case-studies", 
+    icon: Briefcase,
+    description: "Real-world success stories"
+  },
 ];
 
 // All services - without trailing slashes
@@ -115,9 +131,11 @@ export default function Header({
 }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [logoSrc, setLogoSrc] = useState<string | null>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const resourcesRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   // Handle logo with fallback
@@ -140,7 +158,7 @@ export default function Header({
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Handle click outside and escape key for services dropdown
+  // Handle click outside for services dropdown
   useEffect(() => {
     if (!servicesOpen) return;
 
@@ -164,6 +182,30 @@ export default function Header({
     };
   }, [servicesOpen]);
 
+  // Handle click outside for resources dropdown
+  useEffect(() => {
+    if (!resourcesOpen) return;
+
+    function onClickOutside(event: MouseEvent) {
+      if (resourcesRef.current && !resourcesRef.current.contains(event.target as Node)) {
+        setResourcesOpen(false);
+      }
+    }
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setResourcesOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [resourcesOpen]);
+
   // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
@@ -184,7 +226,6 @@ export default function Header({
   const isActiveLink = (href: string) => {
     if (href === "/") return pathname === "/";
     if (href.startsWith("/#")) return pathname === "/";
-    // Remove trailing slash for comparison
     const cleanPathname = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
     const cleanHref = href.endsWith("/") ? href.slice(0, -1) : href;
     return cleanPathname === cleanHref || cleanPathname.startsWith(cleanHref + "/");
@@ -194,6 +235,10 @@ export default function Header({
     const cleanPathname = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
     const cleanHref = href.endsWith("/") ? href.slice(0, -1) : href;
     return cleanPathname === cleanHref || cleanPathname.startsWith(cleanHref);
+  };
+
+  const isResourceActive = (href: string) => {
+    return pathname === href || pathname.startsWith(href + "/");
   };
 
   // Render logo or fallback text
@@ -221,46 +266,47 @@ export default function Header({
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-off transition-[border-color] duration-200 ${scrolled ? "border-b border-mist shadow-sm" : "border-b border-transparent"
-        }`}
+      className={`sticky top-0 z-50 bg-off transition-all duration-200 ${
+        scrolled ? "border-b border-mist shadow-sm" : "border-b border-transparent"
+      }`}
     >
       <div className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-2 px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4">
         {/* Logo - Left side */}
         <Link
           href={homeUrl}
-          className="flex shrink-0 items-center gap-2 focus:outline-none focus:ring-2 focus:ring-teal-deep focus:ring-offset-2 rounded-lg"
+          className="flex shrink-0 items-center gap-2 focus:outline-none focus:ring-2 focus:ring-teal-deep focus:ring-offset-2 rounded-lg transition-opacity hover:opacity-90"
           aria-label={logo?.alt || "Home"}
         >
           {renderLogo()}
         </Link>
 
         {/* Desktop Navigation - Center */}
-        <nav aria-label="Primary" className="hidden items-center gap-4 lg:gap-8 xl:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-5 lg:gap-8 xl:flex">
+          {/* Services Dropdown */}
           <div ref={servicesRef} className="relative">
             <button
               type="button"
               aria-haspopup="true"
               aria-expanded={servicesOpen}
               onClick={() => setServicesOpen((open) => !open)}
-              className={`flex items-center gap-1 text-sm font-medium transition-colors lg:text-body ${servicesOpen || SERVICES_DATA.some(s => isServiceActive(s.href))
+              className={`flex items-center gap-1 text-sm font-medium transition-colors lg:text-body ${
+                servicesOpen || SERVICES_DATA.some(s => isServiceActive(s.href))
                   ? "text-teal-deep"
                   : "text-ink hover:text-teal-deep"
-                }`}
+              }`}
             >
               Services
-              <span
-                aria-hidden="true"
-                className={`transition-transform duration-200 text-xs ${servicesOpen ? "rotate-180" : ""
-                  }`}
-              >
-                ▾
-              </span>
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  servicesOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
 
             {servicesOpen && (
               <div className="absolute left-0 top-full mt-2 w-[800px] max-h-[70vh] overflow-y-auto rounded-xl border border-mist bg-off py-4 shadow-lg animate-in fade-in zoom-in-95 duration-200">
                 <div className="grid grid-cols-3 gap-4 px-4">
-                  {/* Group services by category for better organization */}
+                  {/* Group services by category */}
                   <div>
                     <p className="font-mono text-xs uppercase tracking-[0.12em] text-slate">Core DevOps</p>
                     <ul className="mt-2 flex flex-col gap-1">
@@ -279,10 +325,11 @@ export default function Header({
                           <Link
                             href={service.href}
                             onClick={() => setServicesOpen(false)}
-                            className={`block py-1 text-sm transition-colors ${isServiceActive(service.href)
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
                                 ? "text-teal-deep font-medium"
                                 : "text-ink hover:text-teal-deep hover:underline"
-                              }`}
+                            }`}
                           >
                             {service.label}
                           </Link>
@@ -306,10 +353,11 @@ export default function Header({
                           <Link
                             href={service.href}
                             onClick={() => setServicesOpen(false)}
-                            className={`block py-1 text-sm transition-colors ${isServiceActive(service.href)
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
                                 ? "text-teal-deep font-medium"
                                 : "text-ink hover:text-teal-deep hover:underline"
-                              }`}
+                            }`}
                           >
                             {service.label}
                           </Link>
@@ -331,10 +379,11 @@ export default function Header({
                           <Link
                             href={service.href}
                             onClick={() => setServicesOpen(false)}
-                            className={`block py-1 text-sm transition-colors ${isServiceActive(service.href)
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
                                 ? "text-teal-deep font-medium"
                                 : "text-ink hover:text-teal-deep hover:underline"
-                              }`}
+                            }`}
                           >
                             {service.label}
                           </Link>
@@ -358,10 +407,11 @@ export default function Header({
                           <Link
                             href={service.href}
                             onClick={() => setServicesOpen(false)}
-                            className={`block py-1 text-sm transition-colors ${isServiceActive(service.href)
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
                                 ? "text-teal-deep font-medium"
                                 : "text-ink hover:text-teal-deep hover:underline"
-                              }`}
+                            }`}
                           >
                             {service.label}
                           </Link>
@@ -382,10 +432,11 @@ export default function Header({
                           <Link
                             href={service.href}
                             onClick={() => setServicesOpen(false)}
-                            className={`block py-1 text-sm transition-colors ${isServiceActive(service.href)
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
                                 ? "text-teal-deep font-medium"
                                 : "text-ink hover:text-teal-deep hover:underline"
-                              }`}
+                            }`}
                           >
                             {service.label}
                           </Link>
@@ -410,10 +461,11 @@ export default function Header({
                           <Link
                             href={service.href}
                             onClick={() => setServicesOpen(false)}
-                            className={`block py-1 text-sm transition-colors ${isServiceActive(service.href)
+                            className={`block py-1 text-sm transition-colors ${
+                              isServiceActive(service.href)
                                 ? "text-teal-deep font-medium"
                                 : "text-ink hover:text-teal-deep hover:underline"
-                              }`}
+                            }`}
                           >
                             {service.label}
                           </Link>
@@ -426,14 +478,75 @@ export default function Header({
             )}
           </div>
 
+          {/* Resources Dropdown */}
+          <div ref={resourcesRef} className="relative">
+            <button
+              type="button"
+              aria-haspopup="true"
+              aria-expanded={resourcesOpen}
+              onClick={() => setResourcesOpen((open) => !open)}
+              className={`flex items-center gap-1 text-sm font-medium transition-colors lg:text-body ${
+                resourcesOpen || RESOURCES_ITEMS.some(item => isResourceActive(item.href))
+                  ? "text-teal-deep"
+                  : "text-ink hover:text-teal-deep"
+              }`}
+            >
+              Resources
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  resourcesOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {resourcesOpen && (
+              <div className="absolute left-0 top-full mt-2 w-[280px] rounded-xl border border-mist bg-off py-2 shadow-lg animate-in fade-in zoom-in-95 duration-200">
+                {RESOURCES_ITEMS.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setResourcesOpen(false)}
+                      className={`group flex items-start gap-3 px-4 py-3 transition-colors hover:bg-mist ${
+                        isResourceActive(item.href)
+                          ? "bg-mist text-teal-deep"
+                          : "text-ink"
+                      }`}
+                    >
+                      <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors ${
+                        isResourceActive(item.href)
+                          ? "bg-teal-deep/10 text-teal-deep"
+                          : "bg-mist text-slate group-hover:bg-teal-deep/10 group-hover:text-teal-deep"
+                      }`}>
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className={`text-sm font-medium ${
+                          isResourceActive(item.href)
+                            ? "text-teal-deep"
+                            : "text-ink"
+                        }`}>
+                          {item.label}
+                        </p>
+                        <p className="text-xs text-slate">{item.description}</p>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors lg:text-body ${isActiveLink(link.href)
+              className={`text-sm font-medium transition-colors lg:text-body ${
+                isActiveLink(link.href)
                   ? "text-teal-deep"
                   : "text-ink hover:text-teal-deep"
-                }`}
+              }`}
             >
               {link.label}
             </Link>
@@ -442,7 +555,7 @@ export default function Header({
 
         {/* Desktop CTA - Right side */}
         <div className="hidden xl:block">
-          <Button href="/contact" className="whitespace-nowrap text-sm px-4 py-2 lg:px-5 lg:py-2.5">
+          <Button href="/contact" className="whitespace-nowrap text-sm px-5 py-2.5 lg:px-6 lg:py-3 transition-all hover:scale-105">
             Book a Free Call
           </Button>
         </div>
@@ -462,7 +575,7 @@ export default function Header({
             aria-controls="mobile-nav"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={() => setMobileOpen((open) => !open)}
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-ink hover:bg-mist focus:outline-none focus:ring-2 focus:ring-teal-deep sm:h-9 sm:w-9 md:h-10 md:w-10"
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-ink hover:bg-mist focus:outline-none focus:ring-2 focus:ring-teal-deep transition-colors sm:h-9 sm:w-9 md:h-10 md:w-10"
           >
             <svg
               aria-hidden="true"
@@ -507,10 +620,11 @@ export default function Header({
                   key={service.href}
                   href={service.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`rounded-lg border border-mist px-3 py-2 text-sm transition-colors ${isServiceActive(service.href)
+                  className={`rounded-lg border border-mist px-3 py-2 text-sm transition-colors ${
+                    isServiceActive(service.href)
                       ? "border-teal-deep bg-teal-deep/5 text-teal-deep font-medium"
                       : "hover:border-teal-deep/30 hover:bg-mist"
-                    }`}
+                  }`}
                 >
                   {service.label}
                 </Link>
@@ -527,10 +641,11 @@ export default function Header({
                 <Link
                   href={service.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block py-2 text-sm transition-colors ${isServiceActive(service.href)
+                  className={`block py-2 text-sm transition-colors ${
+                    isServiceActive(service.href)
                       ? "text-teal-deep font-medium"
                       : "text-ink hover:text-teal-deep"
-                    }`}
+                  }`}
                 >
                   {service.label}
                 </Link>
@@ -538,16 +653,45 @@ export default function Header({
             ))}
           </ul>
 
+          {/* Resources on Mobile */}
+          <div className="mt-4 border-t border-mist pt-4">
+            <p className="font-mono text-xs text-mono-label tracking-[0.12em] text-slate uppercase">
+              Resources
+            </p>
+            <ul className="mt-2 flex flex-col gap-2">
+              {RESOURCES_ITEMS.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`flex items-center gap-3 py-2 text-sm transition-colors ${
+                        isResourceActive(item.href)
+                          ? "text-teal-deep font-medium"
+                          : "text-ink hover:text-teal-deep"
+                      }`}
+                    >
+                      <Icon className="h-4 w-4" />
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
           <ul className="mt-4 flex flex-col gap-2 border-t border-mist pt-4">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`block py-2 text-sm font-medium transition-colors ${isActiveLink(link.href)
+                  className={`block py-2 text-sm font-medium transition-colors ${
+                    isActiveLink(link.href)
                       ? "text-teal-deep"
                       : "text-ink hover:text-teal-deep"
-                    }`}
+                  }`}
                 >
                   {link.label}
                 </Link>
