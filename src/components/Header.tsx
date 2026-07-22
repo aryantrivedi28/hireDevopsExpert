@@ -21,12 +21,12 @@ const RESOURCES_ITEMS = [
     icon: BookOpen,
     description: "DevOps insights & best practices"
   },
-  { 
-    label: "Case Studies", 
-    href: "/case-studies", 
-    icon: Briefcase,
-    description: "Real-world success stories"
-  },
+  // { 
+  //   label: "Case Studies", 
+  //   href: "/case-studies", 
+  //   icon: Briefcase,
+  //   description: "Real-world success stories"
+  // },
 ];
 
 // All services - without trailing slashes
