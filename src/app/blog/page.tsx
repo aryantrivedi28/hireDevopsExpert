@@ -4,10 +4,68 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { format } from "date-fns";
-import { Calendar, Clock, ArrowRight, Search, Tag } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Search, Tag, ChevronDown } from "lucide-react";
 
-// This should match your actual blog posts data
+// All blog posts data - Sorted by date (newest first)
 const BLOG_POSTS = [
+  // Foundational Cluster - DevOps Fundamentals (Newest first)
+  {
+    slug: "what-is-kubernetes",
+    title: "What Is Kubernetes? A Plain-English Guide for Startups",
+    excerpt: "Kubernetes (K8s) automates running containers at scale. Here's what it is, how pods, nodes, and clusters fit together, and whether your startup actually needs it.",
+    category: "Cloud & Infrastructure",
+    readTime: "8 min read",
+    date: "2024-01-15",
+    image: "https://miro.medium.com/v2/resize:fit:1080/1*_iIgBd9iYDJWDpjKDhX_ew.jpeg",
+    tags: ["Kubernetes", "Containers", "Cloud Native", "DevOps"],
+    featured: true,
+  },
+  {
+    slug: "what-is-infrastructure-as-code",
+    title: "What Is Infrastructure as Code (IaC)? A 2026 Guide",
+    excerpt: "Infrastructure as code (IaC) lets you build and manage cloud infrastructure with version-controlled code instead of manual setup. Here's what it means and how to start.",
+    category: "Cloud & Infrastructure",
+    readTime: "8 min read",
+    date: "2024-01-15",
+    image: "https://mobilecoderz.com/blog/wp-content/uploads/2022/03/2-1.jpg",
+    tags: ["Infrastructure as Code", "Terraform", "OpenTofu", "IaC"],
+    featured: true,
+  },
+  {
+    slug: "what-is-ci-cd",
+    title: "What Is CI/CD? Continuous Integration & Delivery (2026)",
+    excerpt: "CI/CD automates building, testing, and releasing code so your team ships faster without breaking production. Here's what it means and how to start.",
+    category: "DevOps Fundamentals",
+    readTime: "8 min read",
+    date: "2024-01-15",
+    image: "https://signmycode.com/blog/wp-content/uploads/2024/04/ci-cd-pipeline-jpg.webp",
+    tags: ["CI/CD", "Continuous Integration", "Continuous Delivery", "DevOps Pipelines"],
+    featured: true,
+  },
+  {
+    slug: "what-does-a-devops-engineer-do",
+    title: "What Does a DevOps Engineer Do? Role, Skills & Cost (2026)",
+    excerpt: "A DevOps engineer owns the path from a developer's laptop to production. Here's what they do, the skills they use, what they cost, and if your startup needs one.",
+    category: "DevOps Careers & Hiring",
+    readTime: "9 min read",
+    date: "2024-01-15",
+    image: "https://devopsexpertsindia.com/wp-content/uploads/2024/10/Roles-and-Responsibilities-of-a-DevOps-Engineer-1024x719.png",
+    tags: ["DevOps Engineer", "DevOps Hiring", "Role & Skills", "DevOps Cost"],
+    featured: true,
+  },
+  {
+    slug: "what-is-devops",
+    title: "What Is DevOps? A Practical Guide for Startups & SaaS Teams",
+    excerpt: "DevOps done right means shipping faster without breaking production. Here's what DevOps actually is, how it works, and when your startup or SaaS team really needs it.",
+    category: "DevOps Fundamentals",
+    readTime: "12 min read",
+    date: "2024-01-15",
+    image: "https://testautomationtools.dev/wp-content/uploads/2025/07/What-is-DevOps-main_img.jpeg",
+    tags: ["DevOps", "Startups", "SaaS", "CI/CD"],
+    featured: true,
+  },
+
+  // Existing Blog Posts
   {
     slug: "aws-ecs-vs-eks",
     title: "AWS ECS vs EKS: Which Container Orchestration Should You Choose?",
@@ -15,7 +73,7 @@ const BLOG_POSTS = [
     category: "AWS",
     readTime: "8 min read",
     date: "2024-01-15",
-    image: "/images/blog/aws-ecs-vs-eks.jpg",
+    image: "https://www.rishabhsoft.com/wp-content/uploads/2024/03/Banner-Image-AWS-ECS-VS-EKS.jpg",
     tags: ["AWS", "ECS", "EKS", "Container Orchestration"],
   },
   {
@@ -169,16 +227,6 @@ const BLOG_POSTS = [
     tags: ["Terraform", "CloudFormation", "IaC"],
   },
   {
-    slug: "what-does-a-devops-engineer-do",
-    title: "What Does a DevOps Engineer Do? Roles and Responsibilities",
-    excerpt: "Learn what a DevOps engineer does. Understand the roles, responsibilities, and skills required for modern DevOps professionals.",
-    category: "DevOps",
-    readTime: "10 min read",
-    date: "2023-12-03",
-    image: "/images/blog/what-is-devops.jpg",
-    tags: ["DevOps", "Role", "Responsibilities"],
-  },
-  {
     slug: "when-to-hire-a-devops-engineer",
     title: "When to Hire a DevOps Engineer: Key Signs and Timing",
     excerpt: "Learn when to hire your first DevOps engineer. Understand the key signs, timing, and what to look for in a DevOps professional.",
@@ -190,13 +238,18 @@ const BLOG_POSTS = [
   },
 ];
 
-// Get unique categories
-const CATEGORIES = ["All", ...new Set(BLOG_POSTS.map(post => post.category))];
+// Get unique categories and sort them
+const CATEGORIES = ["All", ...new Set(BLOG_POSTS.map(post => post.category))].sort();
+
+// Featured posts
+const FEATURED_POSTS = BLOG_POSTS.filter(post => post.featured);
 
 export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [visiblePosts, setVisiblePosts] = useState(6);
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+  const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
   // Filter posts
   const getFilteredPosts = () => {
@@ -236,6 +289,33 @@ export default function BlogPage() {
     setVisiblePosts(prev => Math.min(prev + 6, filteredPosts.length));
   };
 
+  // Reset visible posts when filters change
+  useEffect(() => {
+    setVisiblePosts(6);
+  }, [searchQuery, selectedCategory]);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.category-dropdown')) {
+        setIsCategoryDropdownOpen(false);
+      }
+    };
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
+
+  // Handle image error
+  const handleImageError = (slug: string) => {
+    setImageErrors(prev => ({ ...prev, [slug]: true }));
+  };
+
+  // Check if image should be shown
+  const shouldShowImage = (post: typeof BLOG_POSTS[0]) => {
+    return post.image && !imageErrors[post.slug];
+  };
+
   return (
     <main className="min-h-screen bg-off">
       {/* Hero Section */}
@@ -256,12 +336,52 @@ export default function BlogPage() {
         </div>
       </section>
 
+      {/* Featured Posts */}
+      {FEATURED_POSTS.length > 0 && searchQuery === "" && selectedCategory === "All" && (
+        <section className="border-b border-mist bg-white/50 py-8 md:py-12">
+          <div className="mx-auto max-w-[1120px] px-4 md:px-6">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-gray mb-4">
+              Featured Articles
+            </h2>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {FEATURED_POSTS.slice(0, 3).map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group rounded-xl border border-mist bg-white p-4 md:p-6 transition-all hover:shadow-md hover:-translate-y-1"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-teal-deep/10 text-teal-deep">
+                      <span className="text-lg">📘</span>
+                    </div>
+                    <div>
+                      <span className="text-xs font-medium text-teal-deep">{post.category}</span>
+                      <h3 className="mt-1 font-medium text-ink group-hover:text-teal-deep transition-colors text-sm md:text-base">
+                        {post.title}
+                      </h3>
+                      <div className="mt-2 flex items-center gap-3 text-xs text-gray">
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          {post.readTime}
+                        </span>
+                        <span>•</span>
+                        <span>{formatDate(post.date)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Search and Filter */}
       <section className="border-b border-mist bg-off py-6 md:py-8">
         <div className="mx-auto max-w-[1120px] px-4 md:px-6">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             {/* Search */}
-            <div className="relative flex-1 max-w-md">
+            <div className="relative flex-1 max-w-full md:max-w-md">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray" />
               <input
                 type="text"
@@ -279,7 +399,7 @@ export default function BlogPage() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                  className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors whitespace-nowrap ${
                     selectedCategory === category
                       ? "bg-teal-deep text-white"
                       : "bg-white text-slate hover:bg-mist hover:text-ink"
@@ -290,19 +410,35 @@ export default function BlogPage() {
               ))}
             </div>
 
-            {/* Category Filter - Mobile */}
-            <div className="sm:hidden">
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full rounded-lg border border-mist bg-white px-4 py-2.5 text-sm text-ink focus:border-teal-deep focus:outline-none focus:ring-2 focus:ring-teal-deep/20"
+            {/* Category Filter - Mobile Dropdown */}
+            <div className="relative sm:hidden category-dropdown">
+              <button
+                onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+                className="flex w-full items-center justify-between rounded-lg border border-mist bg-white px-4 py-2.5 text-sm text-ink focus:border-teal-deep focus:outline-none focus:ring-2 focus:ring-teal-deep/20"
               >
-                {CATEGORIES.map((category) => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
+                <span>{selectedCategory}</span>
+                <ChevronDown className={`h-4 w-4 text-gray transition-transform ${isCategoryDropdownOpen ? "rotate-180" : ""}`} />
+              </button>
+              {isCategoryDropdownOpen && (
+                <div className="absolute left-0 right-0 top-full z-10 mt-1 max-h-60 overflow-auto rounded-lg border border-mist bg-white shadow-lg">
+                  {CATEGORIES.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => {
+                        setSelectedCategory(category);
+                        setIsCategoryDropdownOpen(false);
+                      }}
+                      className={`block w-full px-4 py-2.5 text-left text-sm transition-colors ${
+                        selectedCategory === category
+                          ? "bg-teal-deep/10 text-teal-deep font-medium"
+                          : "text-slate hover:bg-mist"
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -314,6 +450,8 @@ export default function BlogPage() {
           {/* Results count */}
           <div className="mb-6 text-sm text-slate">
             Showing {filteredPosts.length} {filteredPosts.length === 1 ? "post" : "posts"}
+            {selectedCategory !== "All" && ` in "${selectedCategory}"`}
+            {searchQuery && ` matching "${searchQuery}"`}
           </div>
 
           {/* No results */}
@@ -333,25 +471,37 @@ export default function BlogPage() {
           )}
 
           {/* Blog Grid */}
-          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredPosts.slice(0, visiblePosts).map((post) => (
               <article
                 key={post.slug}
-                className="group flex flex-col overflow-hidden rounded-xl border border-mist bg-white transition-shadow hover:shadow-lg"
+                className="group flex flex-col overflow-hidden rounded-xl border border-mist bg-white transition-all hover:shadow-lg hover:-translate-y-1"
               >
                 {/* Image */}
                 <Link href={`/blog/${post.slug}`} className="block overflow-hidden bg-mist">
                   <div className="relative aspect-[16/9] w-full">
-                    <div className="flex h-full w-full items-center justify-center bg-mist/50 text-gray">
-                      <span className="text-sm">📄 {post.category}</span>
-                    </div>
+                    {shouldShowImage(post) ? (
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        onError={() => handleImageError(post.slug)}
+                        unoptimized={post.image.startsWith('http')}
+                      />
+                    ) : (
+                      <div className="flex h-full w-full flex-col items-center justify-center bg-gradient-to-br from-mist/30 to-mist/60 text-gray">
+                        <span className="text-3xl mb-1">📄</span>
+                        <span className="text-xs font-medium">{post.category}</span>
+                      </div>
+                    )}
                   </div>
                 </Link>
 
                 {/* Content */}
-                <div className="flex flex-1 flex-col p-4 md:p-6">
+                <div className="flex flex-1 flex-col p-4 md:p-5">
                   {/* Meta */}
-                  <div className="flex items-center gap-3 text-xs text-gray">
+                  <div className="flex flex-wrap items-center gap-2 text-xs text-gray">
                     <span className="inline-block rounded-full bg-mist px-2.5 py-0.5 text-xs font-medium text-slate">
                       {post.category}
                     </span>
@@ -361,30 +511,42 @@ export default function BlogPage() {
                     </span>
                   </div>
 
-                  {/* Title - Links to individual blog post */}
+                  {/* Title */}
                   <Link href={`/blog/${post.slug}`} className="mt-2 block">
-                    <h2 className="text-lg font-medium leading-[1.25] text-ink transition-colors group-hover:text-teal-deep md:text-xl">
+                    <h2 className="text-base font-medium leading-[1.25] text-ink transition-colors group-hover:text-teal-deep md:text-lg line-clamp-2">
                       {post.title}
                     </h2>
                   </Link>
 
                   {/* Excerpt */}
-                  <p className="mt-2 flex-1 text-sm text-slate line-clamp-3 md:text-base">
+                  <p className="mt-2 flex-1 text-sm text-slate line-clamp-3">
                     {post.excerpt}
                   </p>
 
+                  {/* Tags */}
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {post.tags.slice(0, 2).map((tag) => (
+                      <span key={tag} className="rounded-full bg-mist/50 px-2 py-0.5 text-xs text-gray">
+                        {tag}
+                      </span>
+                    ))}
+                    {post.tags.length > 2 && (
+                      <span className="text-xs text-gray">+{post.tags.length - 2}</span>
+                    )}
+                  </div>
+
                   {/* Footer */}
-                  <div className="mt-4 flex items-center justify-between border-t border-mist pt-4">
+                  <div className="mt-3 flex items-center justify-between border-t border-mist pt-3">
                     <span className="flex items-center gap-1.5 text-xs text-gray">
                       <Calendar className="h-3.5 w-3.5" />
                       {formatDate(post.date)}
                     </span>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="flex items-center gap-1 text-sm font-medium text-teal-deep transition-colors hover:gap-2 hover:text-teal-deep/80"
+                      className="flex items-center gap-1 text-sm font-medium text-teal-deep transition-colors hover:gap-2"
                     >
                       Read More
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </Link>
                   </div>
                 </div>
@@ -399,7 +561,7 @@ export default function BlogPage() {
                 onClick={loadMore}
                 className="rounded-lg border border-mist bg-white px-8 py-3 text-sm font-medium text-ink transition-colors hover:bg-mist hover:text-teal-deep focus:outline-none focus:ring-2 focus:ring-teal-deep/20"
               >
-                Load More Posts
+                Load More Posts ({visiblePosts} of {filteredPosts.length})
               </button>
             </div>
           )}
