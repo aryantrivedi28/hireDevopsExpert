@@ -266,7 +266,7 @@ export default function Header({
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-off transition-all duration-200 ${
+      className={`sticky top-0 z-50 bg-white transition-all duration-200 ${
         scrolled ? "border-b border-mist shadow-sm" : "border-b border-transparent"
       }`}
     >
@@ -274,7 +274,7 @@ export default function Header({
         {/* Logo - Left side */}
         <Link
           href={homeUrl}
-          className="flex shrink-0 items-center gap-2 focus:outline-none focus:ring-2 focus:ring-teal-deep focus:ring-offset-2 rounded-lg transition-opacity hover:opacity-90"
+          className="flex shrink-0 items-center gap-2 transition-opacity hover:opacity-90"
           aria-label={logo?.alt || "Home"}
         >
           {renderLogo()}
