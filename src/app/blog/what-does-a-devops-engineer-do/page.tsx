@@ -233,7 +233,7 @@ export default function WhatDoesADevOpsEngineerDoPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4 text-teal" />
-                  <time dateTime="2024-01-15">January 15, 2024</time>
+                  <time dateTime="2024-01-15">July 21, 2026</time>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4 text-teal" />
@@ -302,9 +302,6 @@ export default function WhatDoesADevOpsEngineerDoPage() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Article Content */}
             <div className="flex-1 min-w-0">
-              {/* Mobile TOC */}
-              {/* <TableOfContents items={TABLE_OF_CONTENTS} /> */}
-
               {/* Article Content */}
               <div className="max-w-[68ch]">
                 {/* Direct Answer Box */}

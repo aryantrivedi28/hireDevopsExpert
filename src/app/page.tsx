@@ -1,3 +1,4 @@
+// app/page.tsx
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import TrustStrip from "@/components/home/TrustStrip";
@@ -11,6 +12,7 @@ import WhoWeHelp from "@/components/home/WhoWeHelp";
 import SocialProof from "@/components/home/SocialProof";
 import Faq from "@/components/home/Faq";
 import FinalCta from "@/components/home/FinalCta";
+import BlogSection from "@/components/home/BlogSection";
 
 
 export default function Home() {
@@ -27,6 +29,7 @@ export default function Home() {
       <Process />
       <WhoWeHelp />
       {/* <SocialProof /> */}
+      <BlogSection />
       <Faq />
       <FinalCta />
     </>

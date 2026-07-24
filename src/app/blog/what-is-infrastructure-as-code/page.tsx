@@ -196,7 +196,7 @@ export default function WhatIsInfrastructureAsCodePage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4 text-teal" />
-                  <time dateTime="2024-01-15">January 15, 2024</time>
+                  <time dateTime="2024-01-15">July 22, 2026</time>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4 text-teal" />
