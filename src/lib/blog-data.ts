@@ -19,7 +19,7 @@ export const BLOG_POSTS: BlogPost[] = [
             category: "DevOps Fundamentals",
             readTime: "10 min read",
             date: "2026-07-24",
-            image: "/images/blog/benefits-of-devops.jpg",
+            image: "https://razorops.com/images/blog/devops-benefits.jpeg",
             tags: ["DevOps", "DevOps Benefits", "DORA Metrics", "Startups", "SaaS"],
             featured: true,
       },
