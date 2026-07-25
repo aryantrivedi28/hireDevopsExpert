@@ -20,14 +20,14 @@ export default function Hero() {
             on your account throughout.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button href="/contact/">Get a free infrastructure audit</Button>
+            <Button href="/contact">Get a free infrastructure audit</Button>
             <Button variant="secondary-dark" href="#services">
               See our services
             </Button>
           </div>
           <p className="mt-4 text-small text-gray">
             Looking for one person on your team?{" "}
-            <Link href="/hire-devops-engineer/" className="font-medium text-off underline">
+            <Link href="/hire-devops-engineer" className="font-medium text-off underline">
               Hire a DevOps engineer
             </Link>{" "}
             instead.
