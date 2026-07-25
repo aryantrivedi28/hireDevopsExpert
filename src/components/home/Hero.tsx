@@ -10,17 +10,17 @@ export default function Hero() {
     <Section surface="ink-deep">
       <Container className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <div>
-          <Eyebrow tone="gray">Hire a DevOps Expert</Eyebrow>
+          <Eyebrow tone="gray">HIRE A DEVOPS EXPERT</Eyebrow>
           <h1 className="mt-4 text-display font-semibold text-off">
-            DevOps expertise, delivered by a dedicated team.
+            We set up and run your DevOps, so your developers can focus on shipping.
           </h1>
           <p className="mt-6 max-w-[46ch] text-body text-gray">
-            Our dedicated DevOps team sets up, automates, and manages your
-            infrastructure, CI/CD, AWS/Azure/GCP, Kubernetes, and monitoring as
-            a seamless extension of your engineering team.
+            We build your CI/CD pipelines, manage your AWS, Azure, or GCP 
+            infrastructure, and keep production stable—with the same engineers 
+            on your account throughout.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button href="/contact/">Book a DevOps consultation</Button>
+            <Button href="/contact/">Get a free infrastructure audit</Button>
             <Button variant="secondary-dark" href="#services">
               See our services
             </Button>
