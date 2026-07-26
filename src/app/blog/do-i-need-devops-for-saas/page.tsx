@@ -266,8 +266,6 @@ export default function DoINeedDevOpsForSaaSPage() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Article Content */}
             <div className="flex-1 min-w-0">
-              {/* Mobile TOC */}
-              <TableOfContents items={TABLE_OF_CONTENTS} />
 
               {/* Article Content */}
               <div className="max-w-[68ch]">
