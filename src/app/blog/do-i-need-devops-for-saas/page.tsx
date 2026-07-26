@@ -404,7 +404,7 @@ export default function DoINeedDevOpsForSaaSPage() {
                 <div className="my-6 md:my-8 overflow-hidden rounded-xl border border-mist bg-white p-3 md:p-6 shadow-sm">
                   <div className="relative w-full" style={{ aspectRatio: "16/8" }}>
                     <Image
-                      src="/devops-maturity-staircase.svg"
+                      src="/devops-maturity-staircase.png"
                       alt="The five levels as a staircase. The value is in the climb from level one to level three; most startups should aim for the middle, not the top."
                       fill
                       className="object-contain"
