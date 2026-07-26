@@ -13,6 +13,17 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
       {
+            slug: "devops-lifecycle",
+            title: "The DevOps Lifecycle: All 8 Phases Explained",
+            excerpt: "The DevOps lifecycle is usually drawn as an eight-phase infinity loop, though some models list six or seven. Here is what each phase actually does, why it is a loop, and how security fits in.",
+            category: "DevOps Fundamentals",
+            readTime: "9 min read",
+            date: "2026-07-27",
+            image: "/images/blog/devops-lifecycle.jpg",
+            tags: ["DevOps", "DevOps Lifecycle", "DevSecOps", "CI/CD", "Infinity Loop"],
+            featured: true,
+      },
+      {
             slug: "do-i-need-devops-for-saas",
             title: "Do I Need DevOps for My SaaS? A Maturity Check",
             excerpt: "Not sure if your SaaS needs DevOps yet? Use the DevOps maturity model to find where your team actually stands, run an honest self-assessment with DORA metrics, and see which level you should aim for.",
