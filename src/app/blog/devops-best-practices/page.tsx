@@ -41,8 +41,8 @@ import { FaLinkedin, FaTwitter } from "react-icons/fa";
 import { TableOfContents } from "../what-is-devops/components/TableOfContents";
 
 // Current date for the blog
-const PUBLISHED_DATE = "2026-07-28";
-const UPDATED_DATE = "2026-07-28";
+const PUBLISHED_DATE = "2026-07-27";
+const UPDATED_DATE = "2026-07-27";
 
 export const metadata: Metadata = {
   title: "DevOps Best Practices for Growing Teams (by Stage)",
