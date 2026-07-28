@@ -13,6 +13,17 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
       {
+            slug: "what-is-devsecops",
+            title: "What Is DevSecOps? Security Built Into Your Pipeline",
+            excerpt: "DevSecOps means building security into your pipeline instead of bolting it on at the end. Here is what it actually is, how it differs from DevOps, and the two checks a startup should turn on first.",
+            category: "DevOps Fundamentals",
+            readTime: "9 min read",
+            date: "2026-07-28",
+            image: "/images/blog/what-is-devsecops.jpg",
+            tags: ["DevSecOps", "Shift Left", "Application Security", "Startups", "SaaS"],
+            featured: true,
+      },
+      {
             slug: "devops-best-practices",
             title: "DevOps Best Practices for Growing Teams (by Stage)",
             excerpt: "Most DevOps best-practice lists are generic and padded with dubious stats. This one is organized by what to fix first, names the two mistakes growing teams actually make, and skips the hype.",
