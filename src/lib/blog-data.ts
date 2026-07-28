@@ -13,6 +13,17 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
       {
+            slug: "devops-best-practices",
+            title: "DevOps Best Practices for Growing Teams (by Stage)",
+            excerpt: "Most DevOps best-practice lists are generic and padded with dubious stats. This one is organized by what to fix first, names the two mistakes growing teams actually make, and skips the hype.",
+            category: "DevOps Fundamentals",
+            readTime: "9 min read",
+            date: "2026-07-28",
+            image: "/images/blog/devops-best-practices.jpg",
+            tags: ["DevOps", "Best Practices", "Scaling", "Team Topologies", "FinOps"],
+            featured: true,
+      },
+      {
             slug: "devops-lifecycle",
             title: "The DevOps Lifecycle: All 8 Phases Explained",
             excerpt: "The DevOps lifecycle is usually drawn as an eight-phase infinity loop, though some models list six or seven. Here is what each phase actually does, why it is a loop, and how security fits in.",
