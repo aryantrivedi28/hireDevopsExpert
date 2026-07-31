@@ -13,6 +13,28 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
       {
+            slug: "devops-engineer-skills",
+            title: "DevOps Engineer Skills: A Practical 2026 Checklist",
+            excerpt: "The real DevOps engineer skills that matter, as a practical checklist and skills matrix. The technical core, the soft skills, what a startup's first hire needs, and why hiring for a 30-tool list is a mistake.",
+            category: "DevOps Hiring",
+            readTime: "10 min read",
+            date: "2026-07-30",
+            image: "/images/blog/devops-engineer-skills.jpg",
+            tags: ["DevOps Engineer", "Hiring", "Skills", "Career", "Startups"],
+            featured: true,
+      },
+      {
+            slug: "monitoring-vs-observability",
+            title: "Monitoring vs Observability: What's the Difference?",
+            excerpt: "Monitoring tells you a system is broken; observability tells you why. The real difference, the three pillars, the cost trap nobody warns you about, and what a startup actually needs first.",
+            category: "DevOps Fundamentals",
+            readTime: "9 min read",
+            date: "2026-07-29",
+            image: "/images/blog/monitoring-vs-observability.jpg",
+            tags: ["Observability", "Monitoring", "Three Pillars", "OpenTelemetry", "Startups"],
+            featured: true,
+      },
+      {
             slug: "what-is-devsecops",
             title: "What Is DevSecOps? Security Built Into Your Pipeline",
             excerpt: "DevSecOps means building security into your pipeline instead of bolting it on at the end. Here is what it actually is, how it differs from DevOps, and the two checks a startup should turn on first.",
