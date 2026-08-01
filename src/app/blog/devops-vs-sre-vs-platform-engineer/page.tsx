@@ -270,8 +270,6 @@ export default function DevOpsVsSREVsPlatformEngineerPage() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
             {/* Article Content */}
             <div className="flex-1 min-w-0">
-              {/* Mobile TOC */}
-              <TableOfContents items={TABLE_OF_CONTENTS} />
 
               {/* Article Content */}
               <div className="max-w-[68ch]">
@@ -410,7 +408,7 @@ export default function DevOpsVsSREVsPlatformEngineerPage() {
                 <div className="my-6 md:my-8 overflow-hidden rounded-xl border border-mist bg-white p-3 md:p-6 shadow-sm">
                   <div className="relative w-full" style={{ aspectRatio: "16/6" }}>
                     <Image
-                      src="/devops-sre-platform-comparison.svg"
+                      src="/blog/devops-sre-platform-comparison.png"
                       alt="Three layers, not three rival jobs. They share tools; each optimizes something different. Most startups need one DevOps generalist first."
                       fill
                       className="object-contain"
