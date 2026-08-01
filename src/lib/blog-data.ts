@@ -13,6 +13,17 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
       {
+            slug: "devops-vs-sre-vs-platform-engineer",
+            title: "DevOps vs SRE vs Platform Engineer: How They Differ",
+            excerpt: "DevOps, SRE, and platform engineering overlap, but each optimizes something different: flow, reliability, and developer experience. The honest difference, and which one your company actually needs.",
+            category: "DevOps Hiring",
+            readTime: "10 min read",
+            date: "2026-07-31",
+            image: "/images/blog/devops-vs-sre-vs-platform-engineer.jpg",
+            tags: ["DevOps", "SRE", "Platform Engineering", "Hiring", "Startups"],
+            featured: true,
+      },
+      {
             slug: "devops-engineer-skills",
             title: "DevOps Engineer Skills: A Practical 2026 Checklist",
             excerpt: "The real DevOps engineer skills that matter, as a practical checklist and skills matrix. The technical core, the soft skills, what a startup's first hire needs, and why hiring for a 30-tool list is a mistake.",
