@@ -12,6 +12,18 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+      // lib/blog-data.ts - Add this to the BLOG_POSTS array (at the top for latest)
+      {
+            slug: "docker-vs-kubernetes",
+            title: "Docker vs Kubernetes: The Difference and When to Use Each",
+            excerpt: "Docker and Kubernetes are not competitors. Docker builds containers, Kubernetes orchestrates them at scale, and you often use both. Here is the real difference, and an honest answer to whether your team actually needs Kubernetes yet.",
+            category: "Containers and Orchestration",
+            readTime: "11 min read",
+            date: "2026-08-02",
+            image: "https://dailydigitalgrind.com/wp-content/uploads/2025/07/AD_4nXca81GqJr2xgmE4EE8XMD3AtvdQMajrVjhgkrUNCQLQYiPPkYVSTz5-TrORB0AYGBf2Cy6pu-p00tasVAeHiitvoQ5_-fsXuAVUAc5byL4b0EU8diU_PcyFgavys3jPeh86sk8E.png",
+            tags: ["Docker", "Kubernetes", "Containers", "Orchestration", "Startups"],
+            featured: true,
+      },
       {
             slug: "when-to-hire-a-devops-engineer",
             title: "When Should a Startup Hire a DevOps Engineer?",
@@ -19,7 +31,7 @@ export const BLOG_POSTS: BlogPost[] = [
             category: "DevOps Hiring",
             readTime: "9 min read",
             date: "2026-08-01",
-            image: "/images/blog/when-to-hire-devops-engineer.jpg",
+            image: "https://nexusitgroup.com/wp-content/uploads/2024/12/Hire-DevOps-Engineer.jpg",
             tags: ["Hiring", "DevOps", "Startups", "Outsourcing", "Managed DevOps"],
             featured: true,
       },
@@ -30,7 +42,7 @@ export const BLOG_POSTS: BlogPost[] = [
             category: "DevOps Hiring",
             readTime: "10 min read",
             date: "2026-07-31",
-            image: "/images/blog/devops-vs-sre-vs-platform-engineer.jpg",
+            image: "https://talent500.com/blog/wp-content/uploads/sites/42/2025/07/SRE-vs-DevOps-1024x683.png",
             tags: ["DevOps", "SRE", "Platform Engineering", "Hiring", "Startups"],
             featured: true,
       },
@@ -41,7 +53,7 @@ export const BLOG_POSTS: BlogPost[] = [
             category: "DevOps Hiring",
             readTime: "10 min read",
             date: "2026-07-30",
-            image: "/images/blog/devops-engineer-skills.jpg",
+            image: "https://www.slideteam.net/media/catalog/product/cache/1280x720/t/o/top_skills_essential_for_devops_engineer_devops_skills_ppt_summary_infographic_template_slide01.jpg",
             tags: ["DevOps Engineer", "Hiring", "Skills", "Career", "Startups"],
             featured: true,
       },
@@ -52,7 +64,7 @@ export const BLOG_POSTS: BlogPost[] = [
             category: "DevOps Fundamentals",
             readTime: "9 min read",
             date: "2026-07-29",
-            image: "/images/blog/monitoring-vs-observability.jpg",
+            image: "https://www.montecarlodata.com/wp-content/uploads/2025/05/data-monitoring-vs.-observability.png",
             tags: ["Observability", "Monitoring", "Three Pillars", "OpenTelemetry", "Startups"],
             featured: true,
       },
