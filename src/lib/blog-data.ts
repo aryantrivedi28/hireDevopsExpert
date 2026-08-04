@@ -13,6 +13,17 @@ export interface BlogPost {
 
 export const BLOG_POSTS: BlogPost[] = [
       {
+            slug: "when-to-hire-a-devops-engineer",
+            title: "When Should a Startup Hire a DevOps Engineer?",
+            excerpt: "Most startups hire a full-time DevOps engineer too early. The real signs it is time, the ones that mean not yet, and when to outsource (DevOps as a service) instead of hiring.",
+            category: "DevOps Hiring",
+            readTime: "9 min read",
+            date: "2026-08-01",
+            image: "/images/blog/when-to-hire-devops-engineer.jpg",
+            tags: ["Hiring", "DevOps", "Startups", "Outsourcing", "Managed DevOps"],
+            featured: true,
+      },
+      {
             slug: "devops-vs-sre-vs-platform-engineer",
             title: "DevOps vs SRE vs Platform Engineer: How They Differ",
             excerpt: "DevOps, SRE, and platform engineering overlap, but each optimizes something different: flow, reliability, and developer experience. The honest difference, and which one your company actually needs.",
