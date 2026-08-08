@@ -12,7 +12,17 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
-      // lib/blog-data.ts - Add this to the BLOG_POSTS array (at the top for latest)
+{
+  slug: "jenkins-vs-github-actions",
+  title: "Jenkins vs GitHub Actions: Which CI/CD Tool to Choose",
+  excerpt: "Jenkins is a self-hosted automation server you run yourself; GitHub Actions is managed CI/CD built into GitHub. Here is the honest decision, GitHub Actions for low-ops CI on GitHub, Jenkins for self-hosted control or complex pipelines, plus whether Jenkins is still worth it in 2026.",
+  category: "CI/CD Pipelines",
+  readTime: "10 min read",
+  date: "2026-08-04",
+  image: "/images/blog/jenkins-vs-github-actions.jpg",
+  tags: ["Jenkins", "GitHub Actions", "CI/CD", "DevOps", "Pipelines"],
+  featured: true,
+},
       {
             slug: "terraform-vs-cloudformation",
             title: "Terraform vs CloudFormation: Which IaC Tool to Choose",
@@ -24,7 +34,6 @@ export const BLOG_POSTS: BlogPost[] = [
             tags: ["Terraform", "CloudFormation", "Infrastructure as Code", "AWS", "OpenTofu"],
             featured: true,
       },
-      // lib/blog-data.ts - Add this to the BLOG_POSTS array (at the top for latest)
       {
             slug: "docker-vs-kubernetes",
             title: "Docker vs Kubernetes: The Difference and When to Use Each",
