@@ -14,6 +14,18 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
       // lib/blog-data.ts - Add this to the BLOG_POSTS array (at the top for latest)
       {
+            slug: "terraform-vs-cloudformation",
+            title: "Terraform vs CloudFormation: Which IaC Tool to Choose",
+            excerpt: "Terraform is multi-cloud and uses HCL; CloudFormation is AWS-native and manages state for you. Here is the honest decision, use Terraform for multi-cloud or any non-AWS service, CloudFormation if you are all-in on AWS, plus what the OpenTofu split means in 2026.",
+            category: "Infrastructure as Code",
+            readTime: "10 min read",
+            date: "2026-08-03",
+            image: "/images/blog/terraform-vs-cloudformation.jpg",
+            tags: ["Terraform", "CloudFormation", "Infrastructure as Code", "AWS", "OpenTofu"],
+            featured: true,
+      },
+      // lib/blog-data.ts - Add this to the BLOG_POSTS array (at the top for latest)
+      {
             slug: "docker-vs-kubernetes",
             title: "Docker vs Kubernetes: The Difference and When to Use Each",
             excerpt: "Docker and Kubernetes are not competitors. Docker builds containers, Kubernetes orchestrates them at scale, and you often use both. Here is the real difference, and an honest answer to whether your team actually needs Kubernetes yet.",
