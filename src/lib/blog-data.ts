@@ -12,17 +12,29 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
-{
-  slug: "jenkins-vs-github-actions",
-  title: "Jenkins vs GitHub Actions: Which CI/CD Tool to Choose",
-  excerpt: "Jenkins is a self-hosted automation server you run yourself; GitHub Actions is managed CI/CD built into GitHub. Here is the honest decision, GitHub Actions for low-ops CI on GitHub, Jenkins for self-hosted control or complex pipelines, plus whether Jenkins is still worth it in 2026.",
-  category: "CI/CD Pipelines",
-  readTime: "10 min read",
-  date: "2026-08-04",
-  image: "/images/blog/jenkins-vs-github-actions.jpg",
-  tags: ["Jenkins", "GitHub Actions", "CI/CD", "DevOps", "Pipelines"],
-  featured: true,
-},
+      // lib/blog-data.ts - Add this to the BLOG_POSTS array (at the top for latest)
+      {
+            slug: "aws-ecs-vs-eks",
+            title: "AWS ECS vs EKS: Which Should Your Startup Choose?",
+            excerpt: "ECS is AWS's simpler, proprietary container service with no control-plane fee; EKS is managed Kubernetes with the full ecosystem but a per-cluster cost. Fargate is serverless compute for either. Here is the honest decision for startups, and when you actually need Kubernetes.",
+            category: "AWS DevOps",
+            readTime: "10 min read",
+            date: "2026-08-05",
+            image: "/images/blog/aws-ecs-vs-eks.jpg",
+            tags: ["AWS", "ECS", "EKS", "Kubernetes", "Containers", "Fargate"],
+            featured: true,
+      },
+      {
+            slug: "jenkins-vs-github-actions",
+            title: "Jenkins vs GitHub Actions: Which CI/CD Tool to Choose",
+            excerpt: "Jenkins is a self-hosted automation server you run yourself; GitHub Actions is managed CI/CD built into GitHub. Here is the honest decision, GitHub Actions for low-ops CI on GitHub, Jenkins for self-hosted control or complex pipelines, plus whether Jenkins is still worth it in 2026.",
+            category: "CI/CD Pipelines",
+            readTime: "10 min read",
+            date: "2026-08-04",
+            image: "/images/blog/jenkins-vs-github-actions.jpg",
+            tags: ["Jenkins", "GitHub Actions", "CI/CD", "DevOps", "Pipelines"],
+            featured: true,
+      },
       {
             slug: "terraform-vs-cloudformation",
             title: "Terraform vs CloudFormation: Which IaC Tool to Choose",
